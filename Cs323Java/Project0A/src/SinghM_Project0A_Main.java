@@ -12,7 +12,6 @@ class Person {
 
     public void printPerson(PrintWriter oFile) throws IOException {
         String describe = name + " is " + age + " years old.";
-        //System.out.println(describe);
         oFile.println(describe);
     }
 }
@@ -47,7 +46,7 @@ public class SinghM_Project0A_Main {
         }
 
         int numOfPeople = inFile.nextInt();
-        System.out.println("*** There are " + numOfPeople + " people");
+        System.out.println("*** There are " + numOfPeople + " people ***");
         Person[] people = new Person[numOfPeople];
 
         int index = 0;
