@@ -89,8 +89,31 @@ class LLQueue {
             tail = head;
         }
 
-        void insertQ(listNode newNode) {
+        void insertQ(listNode* newNode) {
+            tail->next = newNode;
+            tail = newNode;
+        }
 
+        listNode* deleteQ(LLQueue& q, ofstream& outFile, ofstream& logFile) {
+            logFile << "Entering deleteQ ()\n";
+            if(q.isEmpty()) {
+                outFile << "Q is empty\n";
+                logFile << "Q is empty\n";
+            }
+            else {
+                listNode* temp = q.head->next;
+                if(temp = tail) tail = head;
+                q.head->next = temp->next;
+                temp->next = nullptr;
+                logFile << temp->data << endl;
+                logFile << "Leaving deleteQ () \n";
+                return temp;
+            }
+        }
+
+        bool isEmpty() {
+            if(head == tail) return true;
+            else return false;
         }
 
 };
