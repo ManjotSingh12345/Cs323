@@ -1,4 +1,4 @@
-Entering buildStack () !
+Entering buildStack()!
 input data is The
 input data is Gettysburg
 input data is Address
@@ -17,4 +17,24 @@ input data is known
 input data is in
 input data is American
 input data is history
-Leaving buildStack () !
+Leaving buildStack()!
+Entering buildQueue()!
+After pop stack, newNode's data is history
+After pop stack, newNode's data is American
+After pop stack, newNode's data is in
+After pop stack, newNode's data is known
+After pop stack, newNode's data is best
+After pop stack, newNode's data is the
+After pop stack, newNode's data is of
+After pop stack, newNode's data is one
+After pop stack, newNode's data is Lincoln
+After pop stack, newNode's data is Abraham
+After pop stack, newNode's data is President
+After pop stack, newNode's data is by
+After pop stack, newNode's data is speech
+After pop stack, newNode's data is a
+After pop stack, newNode's data is is
+After pop stack, newNode's data is Address
+After pop stack, newNode's data is Gettysburg
+After pop stack, newNode's data is The
+Leaving buildQueue()!

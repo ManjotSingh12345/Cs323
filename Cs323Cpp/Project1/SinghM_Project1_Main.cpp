@@ -5,7 +5,6 @@ using namespace std;
 
 class listNode {
     private: 
-
     public:
         string data;
         listNode* next;
@@ -17,10 +16,10 @@ class listNode {
 
         void printNode(listNode node, ofstream& outFile) {
             if(node.next != nullptr) { 
-                outFile << node.data << ", " << node.next->data << " ";
+                outFile << "(" << node.data << ", " << node.next->data << ") ";
             }
             else {
-                outFile << node.data << ", " << "NULL";
+                outFile << "(" << node.data << ", " << "NULL" << ") ";
             }
         }
 };
@@ -30,7 +29,6 @@ class LLStack {
         listNode* top;
 
     public:
-
     LLStack() {
         top = new listNode("dummy");  
     }
@@ -56,7 +54,7 @@ class LLStack {
     }
 
     void buildStack(LLStack& s, ifstream& inFile, ofstream& logFile) {
-        logFile << "Entering buildStack () !\n";
+        logFile << "Entering buildStack()!\n";
         string data;
 
         while(inFile >> data) {
@@ -65,7 +63,7 @@ class LLStack {
             s.push(newNode);
         }
 
-        logFile << "Leaving buildStack () !" << endl;
+        logFile << "Leaving buildStack()!" << endl;
     }
 
     void printStack(ofstream& outFile) {
@@ -79,22 +77,23 @@ class LLStack {
 
 class LLQueue {
     private:
-
-    public: 
         listNode* head; //points to dummy node
         listNode* tail; //points to last node 
 
+    public: 
         LLQueue() {
-            head = new listNode("dumnmy");
+            head = new listNode("dummy");
             tail = head;
         }
 
         void insertQ(listNode* newNode) {
+            //Insert at tail
             tail->next = newNode;
             tail = newNode;
         }
 
         listNode* deleteQ(LLQueue& q, ofstream& outFile, ofstream& logFile) {
+            //delete at head
             logFile << "Entering deleteQ ()\n";
             if(q.isEmpty()) {
                 outFile << "Q is empty\n";
@@ -116,6 +115,55 @@ class LLQueue {
             else return false;
         }
 
+        void buildQueue(LLStack& s, LLQueue& q, ofstream& logFile) {
+            logFile << "Entering buildQueue()!\n";
+
+            listNode* newNode;
+            while(!s.isEmpty()) { 
+                newNode = s.pop();
+                logFile << "After pop stack, newNode's data is " << newNode->data << endl;
+                q.insertQ(newNode);
+            }
+
+            logFile << "Leaving buildQueue()!\n";
+        }
+
+        void printQueue(ofstream& outFile) {
+            listNode* temp = head;
+            while(temp != nullptr) {
+                temp->printNode(*temp, outFile);
+                temp = temp->next;
+            }
+        }
+};
+
+class LLlist {
+    private:
+        listNode* head;
+
+    public:
+        LLlist() {
+            head = new listNode("dummy");
+        }
+
+        listNode* findSpot(LLlist& list, listNode& newNode, ofstream& logFile) {
+            logFile << "Entering findSpot()\n";
+
+            listNode* spot = head;
+            while (spot->next != nullptr && spot->next < newNode.next) {
+                spot = spot->next;
+            }
+
+            logFile << "Spot's data is " << spot->data << endl;
+            logFile << "Leaving findSpot()\n";
+            return spot;
+        }
+
+        void insertOneNode(listNode* newNode, ofstream& logFile) {
+            listNode* spot = findSpot(*this, *newNode, logFile);
+            newNode->next = spot->next;
+            spot->next = newNode;
+        }
 };
 
 int main(int argc, char** argv) {
@@ -152,10 +200,21 @@ int main(int argc, char** argv) {
         return 1;
     }
 
-    //building Queue
+    //building Stack
     LLStack stack;
     stack.buildStack(stack, inFile, logFile);
     stack.printStack(outFile1);
 
+    //Building Queue
+    LLQueue queue;
+    queue.buildQueue(stack, queue, logFile);
+    queue.printQueue(outFile2);
+
+    //Closing streams and exiting
+    inFile.close();
+    outFile1.close();
+    outFile2.close();
+    outFile3.close();
+    logFile.close();
     return 0;
 }

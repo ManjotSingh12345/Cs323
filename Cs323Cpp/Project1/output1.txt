@@ -1,1 +1,1 @@
-dummy, history history, American American, in in, known known, best best, the the, of of, one one, Lincoln Lincoln, Abraham Abraham, President President, by by, speech speech, a a, is is, Address Address, Gettysburg Gettysburg, The The, NULL
+(dummy, history) (history, American) (American, in) (in, known) (known, best) (best, the) (the, of) (of, one) (one, Lincoln) (Lincoln, Abraham) (Abraham, President) (President, by) (by, speech) (speech, a) (a, is) (is, Address) (Address, Gettysburg) (Gettysburg, The) (The, NULL) 
