@@ -9,7 +9,7 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/Project1/SinghM_Project1_Main.exe",
-            "args": ["data1.txt", "output1.txt",  "output2.txt",  "output3.txt", "logfile.txt"],
+            "args": ["data2.txt", "output1.txt",  "output2.txt",  "output3.txt", "logfile.txt"],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",
             "environment": [],

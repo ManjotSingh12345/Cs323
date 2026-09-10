@@ -16,10 +16,10 @@ class listNode {
 
         void printNode(listNode node, ofstream& outFile) {
             if(node.next != nullptr) { 
-                outFile << "(" << node.data << ", " << node.next->data << ") ";
+                outFile << "(" << node.data << ", " << node.next->data << ") -> ";
             }
             else {
-                outFile << "(" << node.data << ", " << "NULL" << ") ";
+                outFile << "(" << node.data << ", " << "NULL" << ") -> NULL";
             }
         }
 };
@@ -98,10 +98,11 @@ class LLQueue {
             if(q.isEmpty()) {
                 outFile << "Q is empty\n";
                 logFile << "Q is empty\n";
+                return nullptr;
             }
             else {
                 listNode* temp = q.head->next;
-                if(temp = tail) tail = head;
+                if(temp == q.tail) q.tail = q.head;
                 q.head->next = temp->next;
                 temp->next = nullptr;
                 logFile << temp->data << endl;
@@ -115,12 +116,13 @@ class LLQueue {
             else return false;
         }
 
-        void buildQueue(LLStack& s, LLQueue& q, ofstream& logFile) {
+        void buildQueue(LLStack& s, LLQueue& q, ofstream& outFile, ofstream& logFile) {
             logFile << "Entering buildQueue()!\n";
 
             listNode* newNode;
             while(!s.isEmpty()) { 
                 newNode = s.pop();
+                outFile << " " << newNode->data;
                 logFile << "After pop stack, newNode's data is " << newNode->data << endl;
                 q.insertQ(newNode);
             }
@@ -150,7 +152,7 @@ class LLlist {
             logFile << "Entering findSpot()\n";
 
             listNode* spot = head;
-            while (spot->next != nullptr && spot->next < newNode.next) {
+            while (spot->next != nullptr && spot->next->data < newNode.data) {
                 spot = spot->next;
             }
 
@@ -164,13 +166,34 @@ class LLlist {
             newNode->next = spot->next;
             spot->next = newNode;
         }
+
+        void buildList(LLQueue& q, LLlist& list, ofstream& outFile, ofstream& logFile) {
+            logFile << "Entering buildList()\n";
+
+            while(!q.isEmpty()) {
+                listNode* newNode = q.deleteQ(q, outFile, logFile);
+                outFile << " " << newNode->data;
+                logFile << "Deleted a node from queue, newNode's data is " << 
+                    newNode->data << endl;
+                insertOneNode(newNode, logFile);
+            }
+
+            logFile << "Leaving buildList()\n";
+        }
+
+        void printList(ofstream& outFile) { 
+            listNode* temp = head;
+            while(temp != nullptr) {
+                temp->printNode(*temp, outFile);
+                temp = temp->next;
+            }
+        }
 };
 
 int main(int argc, char** argv) {
-
     //Checking if all args correct
     if(argc != 6) {
-        cout << "Error, tou need 1 input file, 3 output files, and 1 log file";
+        cout << "Error, you need 1 input file, 3 output files, and 1 log file";
         return 1;
     }
     ifstream inFile(argv[1]);
@@ -207,9 +230,15 @@ int main(int argc, char** argv) {
 
     //Building Queue
     LLQueue queue;
-    queue.buildQueue(stack, queue, logFile);
+    queue.buildQueue(stack, queue, outFile1, logFile);
     queue.printQueue(outFile2);
 
+    //building list
+    LLlist list;
+    list.buildList(queue, list, outFile2, logFile);
+    list.printList(logFile);
+    list.printList(outFile3);
+    
     //Closing streams and exiting
     inFile.close();
     outFile1.close();
