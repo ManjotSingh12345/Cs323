@@ -17,104 +17,9 @@ input data is known
 input data is in
 input data is American
 input data is history
-input data is It
-input data is was
-input data is delivered
-input data is by
-input data is Lincoln
-input data is during
-input data is the
-input data is American
-input data is Civil
-input data is War
-input data is on
-input data is the
-input data is afternoon
-input data is of
-input data is Thursday
-input data is November
-input data is 19
-input data is 1863
-input data is at
-input data is the
-input data is dedication
-input data is of
-input data is the
-input data is Soldiers
-input data is National
-input data is Cemetery
-input data is in
-input data is Gettysburg
-input data is Pennsylvania
-input data is four
-input data is and
-input data is a
-input data is half
-input data is months
-input data is after
-input data is the
-input data is Union
-input data is armies
-input data is defeated
-input data is those
-input data is of
-input data is the
-input data is Confederacy
-input data is at
-input data is the
-input data is Battle
-input data is of
-input data is Gettysburg
 Leaving buildStack()!
+
 Entering buildQueue()!
-After pop stack, newNode's data is Gettysburg
-After pop stack, newNode's data is of
-After pop stack, newNode's data is Battle
-After pop stack, newNode's data is the
-After pop stack, newNode's data is at
-After pop stack, newNode's data is Confederacy
-After pop stack, newNode's data is the
-After pop stack, newNode's data is of
-After pop stack, newNode's data is those
-After pop stack, newNode's data is defeated
-After pop stack, newNode's data is armies
-After pop stack, newNode's data is Union
-After pop stack, newNode's data is the
-After pop stack, newNode's data is after
-After pop stack, newNode's data is months
-After pop stack, newNode's data is half
-After pop stack, newNode's data is a
-After pop stack, newNode's data is and
-After pop stack, newNode's data is four
-After pop stack, newNode's data is Pennsylvania
-After pop stack, newNode's data is Gettysburg
-After pop stack, newNode's data is in
-After pop stack, newNode's data is Cemetery
-After pop stack, newNode's data is National
-After pop stack, newNode's data is Soldiers
-After pop stack, newNode's data is the
-After pop stack, newNode's data is of
-After pop stack, newNode's data is dedication
-After pop stack, newNode's data is the
-After pop stack, newNode's data is at
-After pop stack, newNode's data is 1863
-After pop stack, newNode's data is 19
-After pop stack, newNode's data is November
-After pop stack, newNode's data is Thursday
-After pop stack, newNode's data is of
-After pop stack, newNode's data is afternoon
-After pop stack, newNode's data is the
-After pop stack, newNode's data is on
-After pop stack, newNode's data is War
-After pop stack, newNode's data is Civil
-After pop stack, newNode's data is American
-After pop stack, newNode's data is the
-After pop stack, newNode's data is during
-After pop stack, newNode's data is Lincoln
-After pop stack, newNode's data is by
-After pop stack, newNode's data is delivered
-After pop stack, newNode's data is was
-After pop stack, newNode's data is It
 After pop stack, newNode's data is history
 After pop stack, newNode's data is American
 After pop stack, newNode's data is in
@@ -134,468 +39,170 @@ After pop stack, newNode's data is Address
 After pop stack, newNode's data is Gettysburg
 After pop stack, newNode's data is The
 Leaving buildQueue()!
+
 Entering buildList()
-Entering deleteQ ()
-Gettysburg
-Leaving deleteQ () 
-Deleted a node from queue, newNode's data is Gettysburg
-Entering findSpot()
-Spot's data is dummy
-Leaving findSpot()
-Entering deleteQ ()
-of
-Leaving deleteQ () 
-Deleted a node from queue, newNode's data is of
-Entering findSpot()
-Spot's data is Gettysburg
-Leaving findSpot()
-Entering deleteQ ()
-Battle
-Leaving deleteQ () 
-Deleted a node from queue, newNode's data is Battle
-Entering findSpot()
-Spot's data is dummy
-Leaving findSpot()
-Entering deleteQ ()
-the
-Leaving deleteQ () 
-Deleted a node from queue, newNode's data is the
-Entering findSpot()
-Spot's data is of
-Leaving findSpot()
-Entering deleteQ ()
-at
-Leaving deleteQ () 
-Deleted a node from queue, newNode's data is at
-Entering findSpot()
-Spot's data is Gettysburg
-Leaving findSpot()
-Entering deleteQ ()
-Confederacy
-Leaving deleteQ () 
-Deleted a node from queue, newNode's data is Confederacy
-Entering findSpot()
-Spot's data is Battle
-Leaving findSpot()
-Entering deleteQ ()
-the
-Leaving deleteQ () 
-Deleted a node from queue, newNode's data is the
-Entering findSpot()
-Spot's data is of
-Leaving findSpot()
-Entering deleteQ ()
-of
-Leaving deleteQ () 
-Deleted a node from queue, newNode's data is of
-Entering findSpot()
-Spot's data is at
-Leaving findSpot()
-Entering deleteQ ()
-those
-Leaving deleteQ () 
-Deleted a node from queue, newNode's data is those
-Entering findSpot()
-Spot's data is the
-Leaving findSpot()
-Entering deleteQ ()
-defeated
-Leaving deleteQ () 
-Deleted a node from queue, newNode's data is defeated
-Entering findSpot()
-Spot's data is at
-Leaving findSpot()
-Entering deleteQ ()
-armies
-Leaving deleteQ () 
-Deleted a node from queue, newNode's data is armies
-Entering findSpot()
-Spot's data is Gettysburg
-Leaving findSpot()
-Entering deleteQ ()
-Union
-Leaving deleteQ () 
-Deleted a node from queue, newNode's data is Union
-Entering findSpot()
-Spot's data is Gettysburg
-Leaving findSpot()
-Entering deleteQ ()
-the
-Leaving deleteQ () 
-Deleted a node from queue, newNode's data is the
-Entering findSpot()
-Spot's data is of
-Leaving findSpot()
-Entering deleteQ ()
-after
-Leaving deleteQ () 
-Deleted a node from queue, newNode's data is after
-Entering findSpot()
-Spot's data is Union
-Leaving findSpot()
-Entering deleteQ ()
-months
-Leaving deleteQ () 
-Deleted a node from queue, newNode's data is months
-Entering findSpot()
-Spot's data is defeated
-Leaving findSpot()
-Entering deleteQ ()
-half
-Leaving deleteQ () 
-Deleted a node from queue, newNode's data is half
-Entering findSpot()
-Spot's data is defeated
-Leaving findSpot()
-Entering deleteQ ()
-a
-Leaving deleteQ () 
-Deleted a node from queue, newNode's data is a
-Entering findSpot()
-Spot's data is Union
-Leaving findSpot()
-Entering deleteQ ()
-and
-Leaving deleteQ () 
-Deleted a node from queue, newNode's data is and
-Entering findSpot()
-Spot's data is after
-Leaving findSpot()
-Entering deleteQ ()
-four
-Leaving deleteQ () 
-Deleted a node from queue, newNode's data is four
-Entering findSpot()
-Spot's data is defeated
-Leaving findSpot()
-Entering deleteQ ()
-Pennsylvania
-Leaving deleteQ () 
-Deleted a node from queue, newNode's data is Pennsylvania
-Entering findSpot()
-Spot's data is Gettysburg
-Leaving findSpot()
-Entering deleteQ ()
-Gettysburg
-Leaving deleteQ () 
-Deleted a node from queue, newNode's data is Gettysburg
-Entering findSpot()
-Spot's data is Confederacy
-Leaving findSpot()
-Entering deleteQ ()
-in
-Leaving deleteQ () 
-Deleted a node from queue, newNode's data is in
-Entering findSpot()
-Spot's data is half
-Leaving findSpot()
-Entering deleteQ ()
-Cemetery
-Leaving deleteQ () 
-Deleted a node from queue, newNode's data is Cemetery
-Entering findSpot()
-Spot's data is Battle
-Leaving findSpot()
-Entering deleteQ ()
-National
-Leaving deleteQ () 
-Deleted a node from queue, newNode's data is National
-Entering findSpot()
-Spot's data is Gettysburg
-Leaving findSpot()
-Entering deleteQ ()
-Soldiers
-Leaving deleteQ () 
-Deleted a node from queue, newNode's data is Soldiers
-Entering findSpot()
-Spot's data is Pennsylvania
-Leaving findSpot()
-Entering deleteQ ()
-the
-Leaving deleteQ () 
-Deleted a node from queue, newNode's data is the
-Entering findSpot()
-Spot's data is of
-Leaving findSpot()
-Entering deleteQ ()
-of
-Leaving deleteQ () 
-Deleted a node from queue, newNode's data is of
-Entering findSpot()
-Spot's data is months
-Leaving findSpot()
-Entering deleteQ ()
-dedication
-Leaving deleteQ () 
-Deleted a node from queue, newNode's data is dedication
-Entering findSpot()
-Spot's data is at
-Leaving findSpot()
-Entering deleteQ ()
-the
-Leaving deleteQ () 
-Deleted a node from queue, newNode's data is the
-Entering findSpot()
-Spot's data is of
-Leaving findSpot()
-Entering deleteQ ()
-at
-Leaving deleteQ () 
-Deleted a node from queue, newNode's data is at
-Entering findSpot()
-Spot's data is armies
-Leaving findSpot()
-Entering deleteQ ()
-1863
-Leaving deleteQ () 
-Deleted a node from queue, newNode's data is 1863
-Entering findSpot()
-Spot's data is dummy
-Leaving findSpot()
-Entering deleteQ ()
-19
-Leaving deleteQ () 
-Deleted a node from queue, newNode's data is 19
-Entering findSpot()
-Spot's data is 1863
-Leaving findSpot()
-Entering deleteQ ()
-November
-Leaving deleteQ () 
-Deleted a node from queue, newNode's data is November
-Entering findSpot()
-Spot's data is National
-Leaving findSpot()
-Entering deleteQ ()
-Thursday
-Leaving deleteQ () 
-Deleted a node from queue, newNode's data is Thursday
-Entering findSpot()
-Spot's data is Soldiers
-Leaving findSpot()
-Entering deleteQ ()
-of
-Leaving deleteQ () 
-Deleted a node from queue, newNode's data is of
-Entering findSpot()
-Spot's data is months
-Leaving findSpot()
-Entering deleteQ ()
-afternoon
-Leaving deleteQ () 
-Deleted a node from queue, newNode's data is afternoon
-Entering findSpot()
-Spot's data is after
-Leaving findSpot()
-Entering deleteQ ()
-the
-Leaving deleteQ () 
-Deleted a node from queue, newNode's data is the
-Entering findSpot()
-Spot's data is of
-Leaving findSpot()
-Entering deleteQ ()
-on
-Leaving deleteQ () 
-Deleted a node from queue, newNode's data is on
-Entering findSpot()
-Spot's data is of
-Leaving findSpot()
-Entering deleteQ ()
-War
-Leaving deleteQ () 
-Deleted a node from queue, newNode's data is War
-Entering findSpot()
-Spot's data is Union
-Leaving findSpot()
-Entering deleteQ ()
-Civil
-Leaving deleteQ () 
-Deleted a node from queue, newNode's data is Civil
-Entering findSpot()
-Spot's data is Cemetery
-Leaving findSpot()
-Entering deleteQ ()
-American
-Leaving deleteQ () 
-Deleted a node from queue, newNode's data is American
-Entering findSpot()
-Spot's data is 19
-Leaving findSpot()
-Entering deleteQ ()
-the
-Leaving deleteQ () 
-Deleted a node from queue, newNode's data is the
-Entering findSpot()
-Spot's data is on
-Leaving findSpot()
-Entering deleteQ ()
-during
-Leaving deleteQ () 
-Deleted a node from queue, newNode's data is during
-Entering findSpot()
-Spot's data is defeated
-Leaving findSpot()
-Entering deleteQ ()
-Lincoln
-Leaving deleteQ () 
-Deleted a node from queue, newNode's data is Lincoln
-Entering findSpot()
-Spot's data is Gettysburg
-Leaving findSpot()
-Entering deleteQ ()
-by
-Leaving deleteQ () 
-Deleted a node from queue, newNode's data is by
-Entering findSpot()
-Spot's data is at
-Leaving findSpot()
-Entering deleteQ ()
-delivered
-Leaving deleteQ () 
-Deleted a node from queue, newNode's data is delivered
-Entering findSpot()
-Spot's data is defeated
-Leaving findSpot()
-Entering deleteQ ()
-was
-Leaving deleteQ () 
-Deleted a node from queue, newNode's data is was
-Entering findSpot()
-Spot's data is those
-Leaving findSpot()
-Entering deleteQ ()
-It
-Leaving deleteQ () 
-Deleted a node from queue, newNode's data is It
-Entering findSpot()
-Spot's data is Gettysburg
-Leaving findSpot()
 Entering deleteQ ()
 history
 Leaving deleteQ () 
+
 Deleted a node from queue, newNode's data is history
 Entering findSpot()
-Spot's data is half
+Spot's data is dummy
 Leaving findSpot()
+
 Entering deleteQ ()
 American
 Leaving deleteQ () 
+
 Deleted a node from queue, newNode's data is American
 Entering findSpot()
-Spot's data is 19
+Spot's data is dummy
 Leaving findSpot()
+
 Entering deleteQ ()
 in
 Leaving deleteQ () 
+
 Deleted a node from queue, newNode's data is in
 Entering findSpot()
 Spot's data is history
 Leaving findSpot()
+
 Entering deleteQ ()
 known
 Leaving deleteQ () 
+
 Deleted a node from queue, newNode's data is known
 Entering findSpot()
 Spot's data is in
 Leaving findSpot()
+
 Entering deleteQ ()
 best
 Leaving deleteQ () 
+
 Deleted a node from queue, newNode's data is best
 Entering findSpot()
-Spot's data is at
+Spot's data is American
 Leaving findSpot()
+
 Entering deleteQ ()
 the
 Leaving deleteQ () 
+
 Deleted a node from queue, newNode's data is the
 Entering findSpot()
-Spot's data is on
+Spot's data is known
 Leaving findSpot()
+
 Entering deleteQ ()
 of
 Leaving deleteQ () 
+
 Deleted a node from queue, newNode's data is of
 Entering findSpot()
-Spot's data is months
+Spot's data is known
 Leaving findSpot()
+
 Entering deleteQ ()
 one
 Leaving deleteQ () 
+
 Deleted a node from queue, newNode's data is one
 Entering findSpot()
-Spot's data is on
+Spot's data is of
 Leaving findSpot()
+
 Entering deleteQ ()
 Lincoln
 Leaving deleteQ () 
+
 Deleted a node from queue, newNode's data is Lincoln
 Entering findSpot()
-Spot's data is It
+Spot's data is American
 Leaving findSpot()
+
 Entering deleteQ ()
 Abraham
 Leaving deleteQ () 
+
 Deleted a node from queue, newNode's data is Abraham
 Entering findSpot()
-Spot's data is 19
+Spot's data is dummy
 Leaving findSpot()
+
 Entering deleteQ ()
 President
 Leaving deleteQ () 
+
 Deleted a node from queue, newNode's data is President
 Entering findSpot()
-Spot's data is Pennsylvania
+Spot's data is Lincoln
 Leaving findSpot()
+
 Entering deleteQ ()
 by
 Leaving deleteQ () 
+
 Deleted a node from queue, newNode's data is by
 Entering findSpot()
 Spot's data is best
 Leaving findSpot()
+
 Entering deleteQ ()
 speech
 Leaving deleteQ () 
+
 Deleted a node from queue, newNode's data is speech
 Entering findSpot()
 Spot's data is one
 Leaving findSpot()
+
 Entering deleteQ ()
 a
 Leaving deleteQ () 
+
 Deleted a node from queue, newNode's data is a
 Entering findSpot()
-Spot's data is War
+Spot's data is President
 Leaving findSpot()
+
 Entering deleteQ ()
 is
 Leaving deleteQ () 
+
 Deleted a node from queue, newNode's data is is
 Entering findSpot()
 Spot's data is in
 Leaving findSpot()
+
 Entering deleteQ ()
 Address
 Leaving deleteQ () 
+
 Deleted a node from queue, newNode's data is Address
 Entering findSpot()
 Spot's data is Abraham
 Leaving findSpot()
+
 Entering deleteQ ()
 Gettysburg
 Leaving deleteQ () 
+
 Deleted a node from queue, newNode's data is Gettysburg
 Entering findSpot()
-Spot's data is Confederacy
+Spot's data is American
 Leaving findSpot()
+
 Entering deleteQ ()
 The
 Leaving deleteQ () 
+
 Deleted a node from queue, newNode's data is The
 Entering findSpot()
-Spot's data is Soldiers
+Spot's data is President
 Leaving findSpot()
+
 Leaving buildList()
-(dummy, 1863) -> (1863, 19) -> (19, Abraham) -> (Abraham, Address) -> (Address, American) -> (American, American) -> (American, Battle) -> (Battle, Cemetery) -> (Cemetery, Civil) -> (Civil, Confederacy) -> (Confederacy, Gettysburg) -> (Gettysburg, Gettysburg) -> (Gettysburg, Gettysburg) -> (Gettysburg, It) -> (It, Lincoln) -> (Lincoln, Lincoln) -> (Lincoln, National) -> (National, November) -> (November, Pennsylvania) -> (Pennsylvania, President) -> (President, Soldiers) -> (Soldiers, The) -> (The, Thursday) -> (Thursday, Union) -> (Union, War) -> (War, a) -> (a, a) -> (a, after) -> (after, afternoon) -> (afternoon, and) -> (and, armies) -> (armies, at) -> (at, at) -> (at, best) -> (best, by) -> (by, by) -> (by, dedication) -> (dedication, defeated) -> (defeated, delivered) -> (delivered, during) -> (during, four) -> (four, half) -> (half, history) -> (history, in) -> (in, in) -> (in, is) -> (is, known) -> (known, months) -> (months, of) -> (of, of) -> (of, of) -> (of, of) -> (of, of) -> (of, on) -> (on, one) -> (one, speech) -> (speech, the) -> (the, the) -> (the, the) -> (the, the) -> (the, the) -> (the, the) -> (the, the) -> (the, the) -> (the, those) -> (those, was) -> (was, NULL) -> NULL
+
+Printing List: listHead -> (dummy, Abraham) -> (Abraham, Address) -> (Address, American) -> (American, Gettysburg) -> (Gettysburg, Lincoln) -> (Lincoln, President) -> (President, The) -> (The, a) -> (a, best) -> (best, by) -> (by, history) -> (history, in) -> (in, is) -> (is, known) -> (known, of) -> (of, one) -> (one, speech) -> (speech, the) -> (the, NULL) -> NULL

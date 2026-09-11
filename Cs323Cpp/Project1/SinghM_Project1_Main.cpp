@@ -19,16 +19,16 @@ class listNode {
                 outFile << "(" << node.data << ", " << node.next->data << ") -> ";
             }
             else {
-                outFile << "(" << node.data << ", " << "NULL" << ") -> NULL";
+                outFile << "(" << node.data << ", " << "NULL" << ") ";
             }
         }
 };
 
 class LLStack {
     private:
-        listNode* top;
-
     public:
+    listNode* top;
+
     LLStack() {
         top = new listNode("dummy");  
     }
@@ -63,24 +63,26 @@ class LLStack {
             s.push(newNode);
         }
 
-        logFile << "Leaving buildStack()!" << endl;
+        logFile << "Leaving buildStack()!\n\n";
     }
 
     void printStack(ofstream& outFile) {
+        outFile << "Printing Stack: TOP -> ";
         listNode* temp = top;
         while(temp != nullptr) {
             temp->printNode(*temp, outFile);
             temp = temp->next;
         }
+        outFile << "-> NULL\n";
     }
 };
 
 class LLQueue {
     private:
-        listNode* head; //points to dummy node
-        listNode* tail; //points to last node 
-
     public: 
+        listNode* head; //points to dummy node
+        listNode* tail; //points to last node
+
         LLQueue() {
             head = new listNode("dummy");
             tail = head;
@@ -106,7 +108,7 @@ class LLQueue {
                 q.head->next = temp->next;
                 temp->next = nullptr;
                 logFile << temp->data << endl;
-                logFile << "Leaving deleteQ () \n";
+                logFile << "Leaving deleteQ () \n\n";
                 return temp;
             }
         }
@@ -118,6 +120,7 @@ class LLQueue {
 
         void buildQueue(LLStack& s, LLQueue& q, ofstream& outFile, ofstream& logFile) {
             logFile << "Entering buildQueue()!\n";
+            outFile << "Printing pop: ";
 
             listNode* newNode;
             while(!s.isEmpty()) { 
@@ -127,23 +130,26 @@ class LLQueue {
                 q.insertQ(newNode);
             }
 
-            logFile << "Leaving buildQueue()!\n";
+            logFile << "Leaving buildQueue()!\n\n";
+            outFile << "\n";
         }
 
         void printQueue(ofstream& outFile) {
             listNode* temp = head;
+            outFile << "Printing Queue: head -> ";
             while(temp != nullptr) {
                 temp->printNode(*temp, outFile);
                 temp = temp->next;
             }
+            outFile << "<- tail\n";
         }
 };
 
 class LLlist {
     private:
+    public:
         listNode* head;
 
-    public:
         LLlist() {
             head = new listNode("dummy");
         }
@@ -152,12 +158,12 @@ class LLlist {
             logFile << "Entering findSpot()\n";
 
             listNode* spot = head;
-            while (spot->next != nullptr && spot->next->data < newNode.data) {
+            while (spot->next != nullptr && spot->next->data.compare(newNode.data) < 0) {
                 spot = spot->next;
             }
 
             logFile << "Spot's data is " << spot->data << endl;
-            logFile << "Leaving findSpot()\n";
+            logFile << "Leaving findSpot()\n\n";
             return spot;
         }
 
@@ -169,7 +175,7 @@ class LLlist {
 
         void buildList(LLQueue& q, LLlist& list, ofstream& outFile, ofstream& logFile) {
             logFile << "Entering buildList()\n";
-
+            outFile << "Printing deleteQ: ";
             while(!q.isEmpty()) {
                 listNode* newNode = q.deleteQ(q, outFile, logFile);
                 outFile << " " << newNode->data;
@@ -178,15 +184,18 @@ class LLlist {
                 insertOneNode(newNode, logFile);
             }
 
-            logFile << "Leaving buildList()\n";
+            logFile << "Leaving buildList()\n\n";
+            outFile << "\n";
         }
 
         void printList(ofstream& outFile) { 
             listNode* temp = head;
+            outFile << "Printing List: listHead -> ";
             while(temp != nullptr) {
                 temp->printNode(*temp, outFile);
                 temp = temp->next;
             }
+            outFile << "-> NULL\n";
         }
 };
 
@@ -194,33 +203,33 @@ int main(int argc, char** argv) {
     //Checking if all args correct
     if(argc != 6) {
         cout << "Error, you need 1 input file, 3 output files, and 1 log file";
-        return 1;
+        exit(1);
     }
     ifstream inFile(argv[1]);
     if(!inFile) {
         cout << "Error cannot open input text";
-        return 1;
+        exit(1);
     }
 
     ofstream outFile1(argv[2]);
     if(!outFile1) {
         cout << "Error, cannot open output text 1";
-        return 1;
+        exit(1);
     }
     ofstream outFile2(argv[3]);
     if(!outFile2) {
         cout << "Error, cannot open output text 2";
-        return 1;
+        exit(1);
     }
     ofstream outFile3(argv[4]);
     if(!outFile3) {
         cout << "Error, cannot open output text 3";
-        return 1;
+        exit(1);
     }
     ofstream logFile(argv[5]);
     if(!logFile) {
         cout << "Error, cannot open logfile";
-        return 1;
+        exit(1);
     }
 
     //building Stack
@@ -245,5 +254,5 @@ int main(int argc, char** argv) {
     outFile2.close();
     outFile3.close();
     logFile.close();
-    return 0;
+    exit(0);
 }
