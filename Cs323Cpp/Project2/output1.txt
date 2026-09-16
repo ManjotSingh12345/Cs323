@@ -1,0 +1,18 @@
+*** Warning, data is already in the database! Oliver ***
+Yes, the record is in the database! Oliver
+*** Warning: data is *not* in the hashTable! Binyamin ***
+*** Warning, the record is *not* in the database! Binyamin ***
+Yes, the record is in the database! Matthew
+Yes, the record is in the database! Christopher
+*** Warning, the record is *not* in the database! Jesset ***
+*** Warning, the record is *not* in the database! Mohammed ***
+Yes, the record is in the database! Margaret
+*** In main () below is the final hash Table ***
+HashTable[0] -> (dummy, Farhan) -> (Farhan, NULL) -> NULL
+HashTable[1] -> (dummy, Jesse) -> (Jesse, NULL) -> NULL
+HashTable[2] -> (dummy, NULL) -> NULL
+HashTable[3] -> (dummy, Margaret) -> (Margaret, NULL) -> NULL
+HashTable[4] -> (dummy, Aparecet) -> (Aparecet, NULL) -> NULL
+HashTable[5] -> (dummy, Christopher) -> (Christopher, Matthew) -> (Matthew, Oliver) -> (Oliver, NULL) -> NULL
+HashTable[6] -> (dummy, NULL) -> NULL
+

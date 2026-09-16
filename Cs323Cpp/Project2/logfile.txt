@@ -1,0 +1,331 @@
+*** Entering Doit() ***
+*** Doit returns index = 5 ***
+*** Leaving Doit() ***
+In main(): op = + data = Christopher index = 5
+*** Calling hashInsert: index = 5; data = Christopher ***
+*** enter hashInsert method; index = 5 data = Christopher ***
+*** entering findSpot method. Index = 5 Data = Christopher
+*** leaving findSpot method and returning spot where spot’s data is dummy ***
+*** Printing list before hashInsert operation***
+HashTable[5] -> (dummy, NULL) -> NULL
+*** Printing list after hashInsert operation ***
+HashTable[5] -> (dummy, Christopher) -> (Christopher, NULL) -> NULL
+*** Leaving hashInsert() ***
+*** In main () below is the hash Table after iteration index = 5 ***
+HashTable[0] -> (dummy, NULL) -> NULL
+HashTable[1] -> (dummy, NULL) -> NULL
+HashTable[2] -> (dummy, NULL) -> NULL
+HashTable[3] -> (dummy, NULL) -> NULL
+HashTable[4] -> (dummy, NULL) -> NULL
+HashTable[5] -> (dummy, Christopher) -> (Christopher, NULL) -> NULL
+HashTable[6] -> (dummy, NULL) -> NULL
+
+*** Entering Doit() ***
+*** Doit returns index = 1 ***
+*** Leaving Doit() ***
+In main(): op = + data = Jesse index = 1
+*** Calling hashInsert: index = 1; data = Jesse ***
+*** enter hashInsert method; index = 1 data = Jesse ***
+*** entering findSpot method. Index = 1 Data = Jesse
+*** leaving findSpot method and returning spot where spot’s data is dummy ***
+*** Printing list before hashInsert operation***
+HashTable[1] -> (dummy, NULL) -> NULL
+*** Printing list after hashInsert operation ***
+HashTable[1] -> (dummy, Jesse) -> (Jesse, NULL) -> NULL
+*** Leaving hashInsert() ***
+*** In main () below is the hash Table after iteration index = 1 ***
+HashTable[0] -> (dummy, NULL) -> NULL
+HashTable[1] -> (dummy, Jesse) -> (Jesse, NULL) -> NULL
+HashTable[2] -> (dummy, NULL) -> NULL
+HashTable[3] -> (dummy, NULL) -> NULL
+HashTable[4] -> (dummy, NULL) -> NULL
+HashTable[5] -> (dummy, Christopher) -> (Christopher, NULL) -> NULL
+HashTable[6] -> (dummy, NULL) -> NULL
+
+*** Entering Doit() ***
+*** Doit returns index = 5 ***
+*** Leaving Doit() ***
+In main(): op = + data = Matthew index = 5
+*** Calling hashInsert: index = 5; data = Matthew ***
+*** enter hashInsert method; index = 5 data = Matthew ***
+*** entering findSpot method. Index = 5 Data = Matthew
+*** leaving findSpot method and returning spot where spot’s data is Christopher ***
+*** Printing list before hashInsert operation***
+HashTable[5] -> (dummy, Christopher) -> (Christopher, NULL) -> NULL
+*** Printing list after hashInsert operation ***
+HashTable[5] -> (dummy, Christopher) -> (Christopher, Matthew) -> (Matthew, NULL) -> NULL
+*** Leaving hashInsert() ***
+*** In main () below is the hash Table after iteration index = 5 ***
+HashTable[0] -> (dummy, NULL) -> NULL
+HashTable[1] -> (dummy, Jesse) -> (Jesse, NULL) -> NULL
+HashTable[2] -> (dummy, NULL) -> NULL
+HashTable[3] -> (dummy, NULL) -> NULL
+HashTable[4] -> (dummy, NULL) -> NULL
+HashTable[5] -> (dummy, Christopher) -> (Christopher, Matthew) -> (Matthew, NULL) -> NULL
+HashTable[6] -> (dummy, NULL) -> NULL
+
+*** Entering Doit() ***
+*** Doit returns index = 4 ***
+*** Leaving Doit() ***
+In main(): op = + data = Aparecet index = 4
+*** Calling hashInsert: index = 4; data = Aparecet ***
+*** enter hashInsert method; index = 4 data = Aparecet ***
+*** entering findSpot method. Index = 4 Data = Aparecet
+*** leaving findSpot method and returning spot where spot’s data is dummy ***
+*** Printing list before hashInsert operation***
+HashTable[4] -> (dummy, NULL) -> NULL
+*** Printing list after hashInsert operation ***
+HashTable[4] -> (dummy, Aparecet) -> (Aparecet, NULL) -> NULL
+*** Leaving hashInsert() ***
+*** In main () below is the hash Table after iteration index = 4 ***
+HashTable[0] -> (dummy, NULL) -> NULL
+HashTable[1] -> (dummy, Jesse) -> (Jesse, NULL) -> NULL
+HashTable[2] -> (dummy, NULL) -> NULL
+HashTable[3] -> (dummy, NULL) -> NULL
+HashTable[4] -> (dummy, Aparecet) -> (Aparecet, NULL) -> NULL
+HashTable[5] -> (dummy, Christopher) -> (Christopher, Matthew) -> (Matthew, NULL) -> NULL
+HashTable[6] -> (dummy, NULL) -> NULL
+
+*** Entering Doit() ***
+*** Doit returns index = 3 ***
+*** Leaving Doit() ***
+In main(): op = + data = Margaret index = 3
+*** Calling hashInsert: index = 3; data = Margaret ***
+*** enter hashInsert method; index = 3 data = Margaret ***
+*** entering findSpot method. Index = 3 Data = Margaret
+*** leaving findSpot method and returning spot where spot’s data is dummy ***
+*** Printing list before hashInsert operation***
+HashTable[3] -> (dummy, NULL) -> NULL
+*** Printing list after hashInsert operation ***
+HashTable[3] -> (dummy, Margaret) -> (Margaret, NULL) -> NULL
+*** Leaving hashInsert() ***
+*** In main () below is the hash Table after iteration index = 3 ***
+HashTable[0] -> (dummy, NULL) -> NULL
+HashTable[1] -> (dummy, Jesse) -> (Jesse, NULL) -> NULL
+HashTable[2] -> (dummy, NULL) -> NULL
+HashTable[3] -> (dummy, Margaret) -> (Margaret, NULL) -> NULL
+HashTable[4] -> (dummy, Aparecet) -> (Aparecet, NULL) -> NULL
+HashTable[5] -> (dummy, Christopher) -> (Christopher, Matthew) -> (Matthew, NULL) -> NULL
+HashTable[6] -> (dummy, NULL) -> NULL
+
+*** Entering Doit() ***
+*** Doit returns index = 5 ***
+*** Leaving Doit() ***
+In main(): op = + data = Oliver index = 5
+*** Calling hashInsert: index = 5; data = Oliver ***
+*** enter hashInsert method; index = 5 data = Oliver ***
+*** entering findSpot method. Index = 5 Data = Oliver
+*** leaving findSpot method and returning spot where spot’s data is Matthew ***
+*** Printing list before hashInsert operation***
+HashTable[5] -> (dummy, Christopher) -> (Christopher, Matthew) -> (Matthew, NULL) -> NULL
+*** Printing list after hashInsert operation ***
+HashTable[5] -> (dummy, Christopher) -> (Christopher, Matthew) -> (Matthew, Oliver) -> (Oliver, NULL) -> NULL
+*** Leaving hashInsert() ***
+*** In main () below is the hash Table after iteration index = 5 ***
+HashTable[0] -> (dummy, NULL) -> NULL
+HashTable[1] -> (dummy, Jesse) -> (Jesse, NULL) -> NULL
+HashTable[2] -> (dummy, NULL) -> NULL
+HashTable[3] -> (dummy, Margaret) -> (Margaret, NULL) -> NULL
+HashTable[4] -> (dummy, Aparecet) -> (Aparecet, NULL) -> NULL
+HashTable[5] -> (dummy, Christopher) -> (Christopher, Matthew) -> (Matthew, Oliver) -> (Oliver, NULL) -> NULL
+HashTable[6] -> (dummy, NULL) -> NULL
+
+*** Entering Doit() ***
+*** Doit returns index = 5 ***
+*** Leaving Doit() ***
+In main(): op = % data = Oliver index = 5
+op is a illegal operation! op: %
+*** In main () below is the hash Table after iteration index = 5 ***
+HashTable[0] -> (dummy, NULL) -> NULL
+HashTable[1] -> (dummy, Jesse) -> (Jesse, NULL) -> NULL
+HashTable[2] -> (dummy, NULL) -> NULL
+HashTable[3] -> (dummy, Margaret) -> (Margaret, NULL) -> NULL
+HashTable[4] -> (dummy, Aparecet) -> (Aparecet, NULL) -> NULL
+HashTable[5] -> (dummy, Christopher) -> (Christopher, Matthew) -> (Matthew, Oliver) -> (Oliver, NULL) -> NULL
+HashTable[6] -> (dummy, NULL) -> NULL
+
+*** Entering Doit() ***
+*** Doit returns index = 5 ***
+*** Leaving Doit() ***
+In main(): op = + data = Oliver index = 5
+*** Calling hashInsert: index = 5; data = Oliver ***
+*** enter hashInsert method; index = 5 data = Oliver ***
+*** entering findSpot method. Index = 5 Data = Oliver
+*** leaving findSpot method and returning spot where spot’s data is Matthew ***
+*** Warning, data is already in the database! Oliver ***
+*** Leaving hashInsert() ***
+*** In main () below is the hash Table after iteration index = 5 ***
+HashTable[0] -> (dummy, NULL) -> NULL
+HashTable[1] -> (dummy, Jesse) -> (Jesse, NULL) -> NULL
+HashTable[2] -> (dummy, NULL) -> NULL
+HashTable[3] -> (dummy, Margaret) -> (Margaret, NULL) -> NULL
+HashTable[4] -> (dummy, Aparecet) -> (Aparecet, NULL) -> NULL
+HashTable[5] -> (dummy, Christopher) -> (Christopher, Matthew) -> (Matthew, Oliver) -> (Oliver, NULL) -> NULL
+HashTable[6] -> (dummy, NULL) -> NULL
+
+*** Entering Doit() ***
+*** Doit returns index = 5 ***
+*** Leaving Doit() ***
+In main(): op = ? data = Oliver index = 5
+*** Calling hashRetrieval: index = 5; data = Oliver ***
+*** Inside hashRetrieval. Index = 5 data = Oliver ***
+*** entering findSpot method. Index = 5 Data = Oliver
+*** leaving findSpot method and returning spot where spot’s data is Matthew ***
+Yes, the record is in the database! Oliver
+*** In main () below is the hash Table after iteration index = 5 ***
+HashTable[0] -> (dummy, NULL) -> NULL
+HashTable[1] -> (dummy, Jesse) -> (Jesse, NULL) -> NULL
+HashTable[2] -> (dummy, NULL) -> NULL
+HashTable[3] -> (dummy, Margaret) -> (Margaret, NULL) -> NULL
+HashTable[4] -> (dummy, Aparecet) -> (Aparecet, NULL) -> NULL
+HashTable[5] -> (dummy, Christopher) -> (Christopher, Matthew) -> (Matthew, Oliver) -> (Oliver, NULL) -> NULL
+HashTable[6] -> (dummy, NULL) -> NULL
+
+*** Entering Doit() ***
+*** Doit returns index = 5 ***
+*** Leaving Doit() ***
+In main(): op = - data = Binyamin index = 5
+*** Calling hashDelete: index = 5; data = Binyamin ***
+*** Inside hashDelete method. Index = 5 data = Binyamin ***
+*** entering findSpot method. Index = 5 Data = Binyamin
+*** leaving findSpot method and returning spot where spot’s data is dummy ***
+*** Warning: data is *not* in the hashTable! Binyamin ***
+*** In main () below is the hash Table after iteration index = 5 ***
+HashTable[0] -> (dummy, NULL) -> NULL
+HashTable[1] -> (dummy, Jesse) -> (Jesse, NULL) -> NULL
+HashTable[2] -> (dummy, NULL) -> NULL
+HashTable[3] -> (dummy, Margaret) -> (Margaret, NULL) -> NULL
+HashTable[4] -> (dummy, Aparecet) -> (Aparecet, NULL) -> NULL
+HashTable[5] -> (dummy, Christopher) -> (Christopher, Matthew) -> (Matthew, Oliver) -> (Oliver, NULL) -> NULL
+HashTable[6] -> (dummy, NULL) -> NULL
+
+*** Entering Doit() ***
+*** Doit returns index = 5 ***
+*** Leaving Doit() ***
+In main(): op = ? data = Binyamin index = 5
+*** Calling hashRetrieval: index = 5; data = Binyamin ***
+*** Inside hashRetrieval. Index = 5 data = Binyamin ***
+*** entering findSpot method. Index = 5 Data = Binyamin
+*** leaving findSpot method and returning spot where spot’s data is dummy ***
+*** Warning, the record is *not* in the database! Binyamin ***
+*** In main () below is the hash Table after iteration index = 5 ***
+HashTable[0] -> (dummy, NULL) -> NULL
+HashTable[1] -> (dummy, Jesse) -> (Jesse, NULL) -> NULL
+HashTable[2] -> (dummy, NULL) -> NULL
+HashTable[3] -> (dummy, Margaret) -> (Margaret, NULL) -> NULL
+HashTable[4] -> (dummy, Aparecet) -> (Aparecet, NULL) -> NULL
+HashTable[5] -> (dummy, Christopher) -> (Christopher, Matthew) -> (Matthew, Oliver) -> (Oliver, NULL) -> NULL
+HashTable[6] -> (dummy, NULL) -> NULL
+
+*** Entering Doit() ***
+*** Doit returns index = 5 ***
+*** Leaving Doit() ***
+In main(): op = ? data = Matthew index = 5
+*** Calling hashRetrieval: index = 5; data = Matthew ***
+*** Inside hashRetrieval. Index = 5 data = Matthew ***
+*** entering findSpot method. Index = 5 Data = Matthew
+*** leaving findSpot method and returning spot where spot’s data is Christopher ***
+Yes, the record is in the database! Matthew
+*** In main () below is the hash Table after iteration index = 5 ***
+HashTable[0] -> (dummy, NULL) -> NULL
+HashTable[1] -> (dummy, Jesse) -> (Jesse, NULL) -> NULL
+HashTable[2] -> (dummy, NULL) -> NULL
+HashTable[3] -> (dummy, Margaret) -> (Margaret, NULL) -> NULL
+HashTable[4] -> (dummy, Aparecet) -> (Aparecet, NULL) -> NULL
+HashTable[5] -> (dummy, Christopher) -> (Christopher, Matthew) -> (Matthew, Oliver) -> (Oliver, NULL) -> NULL
+HashTable[6] -> (dummy, NULL) -> NULL
+
+*** Entering Doit() ***
+*** Doit returns index = 0 ***
+*** Leaving Doit() ***
+In main(): op = + data = Farhan index = 0
+*** Calling hashInsert: index = 0; data = Farhan ***
+*** enter hashInsert method; index = 0 data = Farhan ***
+*** entering findSpot method. Index = 0 Data = Farhan
+*** leaving findSpot method and returning spot where spot’s data is dummy ***
+*** Printing list before hashInsert operation***
+HashTable[0] -> (dummy, NULL) -> NULL
+*** Printing list after hashInsert operation ***
+HashTable[0] -> (dummy, Farhan) -> (Farhan, NULL) -> NULL
+*** Leaving hashInsert() ***
+*** In main () below is the hash Table after iteration index = 0 ***
+HashTable[0] -> (dummy, Farhan) -> (Farhan, NULL) -> NULL
+HashTable[1] -> (dummy, Jesse) -> (Jesse, NULL) -> NULL
+HashTable[2] -> (dummy, NULL) -> NULL
+HashTable[3] -> (dummy, Margaret) -> (Margaret, NULL) -> NULL
+HashTable[4] -> (dummy, Aparecet) -> (Aparecet, NULL) -> NULL
+HashTable[5] -> (dummy, Christopher) -> (Christopher, Matthew) -> (Matthew, Oliver) -> (Oliver, NULL) -> NULL
+HashTable[6] -> (dummy, NULL) -> NULL
+
+*** Entering Doit() ***
+*** Doit returns index = 5 ***
+*** Leaving Doit() ***
+In main(): op = ? data = Christopher index = 5
+*** Calling hashRetrieval: index = 5; data = Christopher ***
+*** Inside hashRetrieval. Index = 5 data = Christopher ***
+*** entering findSpot method. Index = 5 Data = Christopher
+*** leaving findSpot method and returning spot where spot’s data is dummy ***
+Yes, the record is in the database! Christopher
+*** In main () below is the hash Table after iteration index = 5 ***
+HashTable[0] -> (dummy, Farhan) -> (Farhan, NULL) -> NULL
+HashTable[1] -> (dummy, Jesse) -> (Jesse, NULL) -> NULL
+HashTable[2] -> (dummy, NULL) -> NULL
+HashTable[3] -> (dummy, Margaret) -> (Margaret, NULL) -> NULL
+HashTable[4] -> (dummy, Aparecet) -> (Aparecet, NULL) -> NULL
+HashTable[5] -> (dummy, Christopher) -> (Christopher, Matthew) -> (Matthew, Oliver) -> (Oliver, NULL) -> NULL
+HashTable[6] -> (dummy, NULL) -> NULL
+
+*** Entering Doit() ***
+*** Doit returns index = 6 ***
+*** Leaving Doit() ***
+In main(): op = ? data = Jesset index = 6
+*** Calling hashRetrieval: index = 6; data = Jesset ***
+*** Inside hashRetrieval. Index = 6 data = Jesset ***
+*** entering findSpot method. Index = 6 Data = Jesset
+*** leaving findSpot method and returning spot where spot’s data is dummy ***
+*** Warning, the record is *not* in the database! Jesset ***
+*** In main () below is the hash Table after iteration index = 6 ***
+HashTable[0] -> (dummy, Farhan) -> (Farhan, NULL) -> NULL
+HashTable[1] -> (dummy, Jesse) -> (Jesse, NULL) -> NULL
+HashTable[2] -> (dummy, NULL) -> NULL
+HashTable[3] -> (dummy, Margaret) -> (Margaret, NULL) -> NULL
+HashTable[4] -> (dummy, Aparecet) -> (Aparecet, NULL) -> NULL
+HashTable[5] -> (dummy, Christopher) -> (Christopher, Matthew) -> (Matthew, Oliver) -> (Oliver, NULL) -> NULL
+HashTable[6] -> (dummy, NULL) -> NULL
+
+*** Entering Doit() ***
+*** Doit returns index = 4 ***
+*** Leaving Doit() ***
+In main(): op = ? data = Mohammed index = 4
+*** Calling hashRetrieval: index = 4; data = Mohammed ***
+*** Inside hashRetrieval. Index = 4 data = Mohammed ***
+*** entering findSpot method. Index = 4 Data = Mohammed
+*** leaving findSpot method and returning spot where spot’s data is Aparecet ***
+*** Warning, the record is *not* in the database! Mohammed ***
+*** In main () below is the hash Table after iteration index = 4 ***
+HashTable[0] -> (dummy, Farhan) -> (Farhan, NULL) -> NULL
+HashTable[1] -> (dummy, Jesse) -> (Jesse, NULL) -> NULL
+HashTable[2] -> (dummy, NULL) -> NULL
+HashTable[3] -> (dummy, Margaret) -> (Margaret, NULL) -> NULL
+HashTable[4] -> (dummy, Aparecet) -> (Aparecet, NULL) -> NULL
+HashTable[5] -> (dummy, Christopher) -> (Christopher, Matthew) -> (Matthew, Oliver) -> (Oliver, NULL) -> NULL
+HashTable[6] -> (dummy, NULL) -> NULL
+
+*** Entering Doit() ***
+*** Doit returns index = 3 ***
+*** Leaving Doit() ***
+In main(): op = ? data = Margaret index = 3
+*** Calling hashRetrieval: index = 3; data = Margaret ***
+*** Inside hashRetrieval. Index = 3 data = Margaret ***
+*** entering findSpot method. Index = 3 Data = Margaret
+*** leaving findSpot method and returning spot where spot’s data is dummy ***
+Yes, the record is in the database! Margaret
+*** In main () below is the hash Table after iteration index = 3 ***
+HashTable[0] -> (dummy, Farhan) -> (Farhan, NULL) -> NULL
+HashTable[1] -> (dummy, Jesse) -> (Jesse, NULL) -> NULL
+HashTable[2] -> (dummy, NULL) -> NULL
+HashTable[3] -> (dummy, Margaret) -> (Margaret, NULL) -> NULL
+HashTable[4] -> (dummy, Aparecet) -> (Aparecet, NULL) -> NULL
+HashTable[5] -> (dummy, Christopher) -> (Christopher, Matthew) -> (Matthew, Oliver) -> (Oliver, NULL) -> NULL
+HashTable[6] -> (dummy, NULL) -> NULL
+
