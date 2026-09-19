@@ -1,18 +1,33 @@
-*** Warning, data is already in the database! Oliver ***
-Yes, the record is in the database! Oliver
-*** Warning: data is *not* in the hashTable! Binyamin ***
-*** Warning, the record is *not* in the database! Binyamin ***
-Yes, the record is in the database! Matthew
-Yes, the record is in the database! Christopher
-*** Warning, the record is *not* in the database! Jesset ***
+*** Warning, the record is *not* in the database! Margaret ***
+*** Warning, the record is *not* in the database! Jiten ***
+*** Warning, data is already in the database! Hao ***
+*** Warning: data is *not* in the hashTable! Ramon ***
+*** Warning, the record is *not* in the database! Ramon ***
+Yes, the record is in the database! Jiacheng
+*** Warning: data is *not* in the hashTable! Jiten ***
+Yes, the record is in the database! William
+*** Warning, data is already in the database! Giuliani ***
+*** Warning: data is *not* in the hashTable! Andy ***
+*** Warning, the record is *not* in the database! Syed ***
+*** Warning, data is already in the database! Andy ***
+*** Warning, data is already in the database! Frida ***
+*** Warning, the record is *not* in the database! Benjamin ***
+*** Warning, data is already in the database! Ramon ***
+Yes, the record is in the database! Frida
+*** Warning, data is already in the database! Mohammed ***
 *** Warning, the record is *not* in the database! Mohammed ***
-Yes, the record is in the database! Margaret
 *** In main () below is the final hash Table ***
-HashTable[0] -> (dummy, Farhan) -> (Farhan, NULL) -> NULL
-HashTable[1] -> (dummy, Jesse) -> (Jesse, NULL) -> NULL
+HashTable[0] -> (dummy, NULL) -> NULL
+HashTable[1] -> (dummy, Jiacheng) -> (Jiacheng, NULL) -> NULL
 HashTable[2] -> (dummy, NULL) -> NULL
-HashTable[3] -> (dummy, Margaret) -> (Margaret, NULL) -> NULL
-HashTable[4] -> (dummy, Aparecet) -> (Aparecet, NULL) -> NULL
-HashTable[5] -> (dummy, Christopher) -> (Christopher, Matthew) -> (Matthew, Oliver) -> (Oliver, NULL) -> NULL
+HashTable[3] -> (dummy, Htoo) -> (Htoo, NULL) -> NULL
+HashTable[4] -> (dummy, William) -> (William, NULL) -> NULL
+HashTable[5] -> (dummy, NULL) -> NULL
 HashTable[6] -> (dummy, NULL) -> NULL
+HashTable[7] -> (dummy, NULL) -> NULL
+HashTable[8] -> (dummy, Ramon) -> (Ramon, NULL) -> NULL
+HashTable[9] -> (dummy, NULL) -> NULL
+HashTable[10] -> (dummy, Andy) -> (Andy, Giuliani) -> (Giuliani, NULL) -> NULL
+HashTable[11] -> (dummy, Frida) -> (Frida, NULL) -> NULL
+HashTable[12] -> (dummy, NULL) -> NULL
 

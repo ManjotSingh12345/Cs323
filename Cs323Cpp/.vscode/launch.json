@@ -9,7 +9,7 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/Project2/SinghM_Project2_Main.exe",
-            "args": ["HashTable_Data1.txt", "7", "output1.txt", "logfile.txt"],
+            "args": ["HashTable_Data2.txt", "13", "output1.txt", "logfile.txt"],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",
             "environment": [],

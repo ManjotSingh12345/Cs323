@@ -6,7 +6,6 @@ using namespace std;
 class listNode {
     private:
     public:
-
     string data;
     listNode* next;
 
@@ -19,7 +18,6 @@ class listNode {
 class hashTable {
     private:
     public:
-
     char op;
     string data;
     int bucketSize;
