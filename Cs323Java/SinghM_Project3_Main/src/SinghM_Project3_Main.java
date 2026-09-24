@@ -19,14 +19,23 @@ class HtreeNode {
     public void printNode(HtreeNode T, BufferedWriter ofile) throws IOException {
         ofile.write("(" + T.chStr + ", " + T.count + ", " + T.code);
 
-        if(T.left != null) {ofile.write(", " + T.left.chStr);}
-        else {ofile.write(", NULL" );}
+        if (T.left != null) {
+            ofile.write(", " + T.left.chStr);
+        } else {
+            ofile.write(", NULL");
+        }
 
-        if(T.right != null) {ofile.write(", " + T.right.chStr);}
-        else {ofile.write(", NULL" );}
+        if (T.right != null) {
+            ofile.write(", " + T.right.chStr);
+        } else {
+            ofile.write(", NULL");
+        }
 
-        if(T.next != null) {ofile.write(", " + T.next.chStr);}
-        else {ofile.write(", NULL" );}
+        if (T.next != null) {
+            ofile.write(", " + T.next.chStr);
+        } else {
+            ofile.write(", NULL");
+        }
 
         ofile.write(") -> ");
     }
@@ -49,7 +58,9 @@ class HuffmanCoding {
     public void computeCharCounts(BufferedReader inFile) throws IOException {
         int input = inFile.read();
         while(input != -1) {
-            charCountArr[(int) input]++;
+            if(input <= 255) {
+                charCountArr[(int) input]++;
+            }
             input = inFile.read();
         }
     }
@@ -57,7 +68,7 @@ class HuffmanCoding {
     public void printCountArr(BufferedWriter outFile) throws IOException {
         outFile.write("Ascii\tcharacter\t\tcount\n================\n");
         for(int i=0;i<256;i++){
-            if(charCountArr[i] > 0) {
+            if(charCountArr[i] > 0 && i != 10 && i != 13 && i != 23 && i != 32) {
                 outFile.write(i + "\t" + (char) i + "\t\t" + charCountArr[i] + "\n");
             }
         }
@@ -144,10 +155,124 @@ class HuffmanCoding {
 
         return listHead.next;
     }
+
+    public void constructCharCode (HtreeNode t, String code, String[] codeTable) {
+        if (isLeaf(t)) {
+            t.code = code;
+            int index = (int) t.chStr.charAt(0);
+            codeTable[index] = code;
+        }
+        else {
+            constructCharCode(t.left, code + "0", codeTable);
+            constructCharCode(t.right, code + "1", codeTable);
+        }
+    }
+
+    public void inOrder(HtreeNode t, BufferedWriter outFile) throws IOException {
+        if (isLeaf(t)) {
+            t.printNode(t, outFile);
+        }
+        else {
+            inOrder(t.left, outFile);
+            t.printNode(t, outFile);
+            inOrder(t.right, outFile);
+        }
+    }
+
+    public void preOrder(HtreeNode t, BufferedWriter outFile) throws IOException {
+        if (isLeaf(t)) {
+            t.printNode(t, outFile);
+        }
+        else {
+            t.printNode(t, outFile);
+            preOrder(t.left, outFile);
+            preOrder(t.right, outFile);
+        }
+    }
+
+    public void postOrder(HtreeNode t, BufferedWriter outFile) throws IOException {
+        if (isLeaf(t)) {
+            t.printNode(t, outFile);
+        }
+        else {
+            postOrder(t.left, outFile);
+            postOrder(t.right, outFile);
+            t.printNode(t, outFile);
+        }
+    }
+
+    public void printCodeTable(BufferedWriter outFile) throws IOException {
+        outFile.write("Ascii\tcharacter\t\tcode\n================\n");
+        for(int i=0;i<256;i++){
+            if(!codeTable[i].equals("") && i != 10 && i != 13 && i != 23 && i != 32) {
+                outFile.write(i + "\t" + (char) i + "\t\t" + codeTable[i] + "\n");
+            }
+        }
+    }
 }
 
 public class SinghM_Project3_Main {
-    public static void main(String[] args) {
-        System.out.println("Hello");
+    public static void main(String[] args) throws IOException{
+        if(args.length != 3) {
+            System.out.println("Error, need a input file, output file, and log file");
+            System.exit(0);
+        }
+
+        BufferedReader inFile = null;
+        BufferedWriter outFile = null;
+        BufferedWriter logFile = null;
+
+        try {
+            inFile = new BufferedReader(new FileReader(args[0]));
+        }
+        catch (FileNotFoundException e) {
+            System.out.println("Error, inFile cannot be opened");
+            System.exit(0);
+        }
+
+        try {
+            outFile = new BufferedWriter(new FileWriter(args[1]));
+        }
+        catch (FileNotFoundException e) {
+            System.out.println("Error, outFile cannot be opened");
+            System.exit(0);
+        }
+
+        try {
+            logFile = new BufferedWriter(new FileWriter(args[2]));
+        }
+        catch (FileNotFoundException e) {
+            System.out.println("Error, logFile cannot be opened");
+            System.exit(0);
+        }
+
+        HuffmanCoding huffman = new HuffmanCoding();
+        huffman.computeCharCounts(inFile);
+        outFile.write("**** Below is the character counts Table ***\n");
+        huffman.printCountArr(outFile);
+        outFile.write("\n");
+
+        outFile.write("*** In main, calling constructHuffmanLList ***\n");
+        huffman.constructHuffmanLList(huffman.listHead, huffman.charCountArr, logFile);
+        outFile.write("\n*** In main (): printing list after list is constructed ***\n");
+        huffman.printList(huffman.listHead, outFile);
+        outFile.write("\n\n*** In main before calling constructHuffmanBinTree ***\n");
+        huffman.root = huffman.constructHuffmanBinTree(huffman.listHead, outFile, logFile);
+
+        outFile.write("\n*** In main (): printing in-Order traversal of the tree\n");
+        huffman.inOrder(huffman.root, outFile);
+        outFile.write(" *** \n\n*** In main (): printing pre-Order traversal of the tree\n");
+        huffman.preOrder(huffman.root, outFile);
+        outFile.write(" *** \n\n*** In main (): printing post-Order traversal of the tree\n");
+        huffman.postOrder(huffman.root, outFile);
+
+        huffman.constructCharCode(huffman.root, "", huffman.codeTable);
+        outFile.write(" *** \n\n*** In main (): printing character code Table\n");
+        huffman.printCodeTable(outFile);
+        outFile.write("***\n");
+
+        inFile.close();
+        outFile.close();
+        logFile.close();
     }
 }
