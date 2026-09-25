@@ -17,27 +17,38 @@ class HtreeNode {
     }
 
     public void printNode(HtreeNode T, BufferedWriter ofile) throws IOException {
-        ofile.write("(" + T.chStr + ", " + T.count + ", " + T.code);
+        ofile.write("(" + printableString(T.chStr) + ", " + T.count + ", " + T.code);
 
         if (T.left != null) {
-            ofile.write(", " + T.left.chStr);
+            ofile.write(", " + printableString(T.left.chStr));
         } else {
             ofile.write(", NULL");
         }
 
         if (T.right != null) {
-            ofile.write(", " + T.right.chStr);
+            ofile.write(", " + printableString(T.right.chStr));
         } else {
             ofile.write(", NULL");
         }
 
         if (T.next != null) {
-            ofile.write(", " + T.next.chStr);
+            ofile.write(", " + printableString(T.next.chStr));
         } else {
             ofile.write(", NULL");
         }
 
         ofile.write(") -> ");
+    }
+
+    public String printableString(String str) {
+        String toReturn = "";
+
+        for(int i=0; i<str.length(); i++) {
+            if(str.charAt(i) != 10 && str.charAt(i) != 13 && str.charAt(i) != 23 && str.charAt(i) != 32) {
+                toReturn += str.charAt(i);
+            }
+        }
+        return toReturn;
     }
 }
 
@@ -66,12 +77,13 @@ class HuffmanCoding {
     }
 
     public void printCountArr(BufferedWriter outFile) throws IOException {
-        outFile.write("Ascii\tcharacter\t\tcount\n================\n");
+        outFile.write("Ascii\tcharacter\tcount\n================================\n");
         for(int i=0;i<256;i++){
             if(charCountArr[i] > 0 && i != 10 && i != 13 && i != 23 && i != 32) {
                 outFile.write(i + "\t" + (char) i + "\t\t" + charCountArr[i] + "\n");
             }
         }
+        outFile.write("================================\n");
     }
 
     public void constructHuffmanLList (HtreeNode listHead, int[] charCountArr, BufferedWriter logFile) throws IOException {
@@ -102,7 +114,7 @@ class HuffmanCoding {
         while(spot.next != null && spot.next.count < newNode.count) {
             spot = spot.next;
             if(spot.next != null) {
-                logFile.write("Spot.next's frequency is " + spot.next.count + " and newNode frequency is" + newNode.count + "\n");
+                logFile.write("Spot.next's frequency is " + spot.next.count + " and newNode frequency is " + newNode.count + "\n");
             }
         }
         logFile.write("*** Leaving FindSpot Method ***\n");
@@ -202,12 +214,13 @@ class HuffmanCoding {
     }
 
     public void printCodeTable(BufferedWriter outFile) throws IOException {
-        outFile.write("Ascii\tcharacter\t\tcode\n================\n");
+        outFile.write("Ascii\tcharacter\tcode\n================================\n");
         for(int i=0;i<256;i++){
             if(!codeTable[i].equals("") && i != 10 && i != 13 && i != 23 && i != 32) {
                 outFile.write(i + "\t" + (char) i + "\t\t" + codeTable[i] + "\n");
             }
         }
+        outFile.write("================================\n");
     }
 }
 
