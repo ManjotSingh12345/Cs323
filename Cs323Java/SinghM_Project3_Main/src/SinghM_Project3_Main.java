@@ -153,6 +153,7 @@ class HuffmanCoding {
             newNode.right = node2;
             newNode.next = null;
 
+            logFile.write("*** In constructHuffmanBinTree method, printing newNode: ");
             newNode.printNode(newNode, logFile);
             logFile.write("\n");
 
@@ -267,8 +268,10 @@ public class SinghM_Project3_Main {
 
         outFile.write("*** In main, calling constructHuffmanLList ***\n");
         huffman.constructHuffmanLList(huffman.listHead, huffman.charCountArr, logFile);
+
         outFile.write("\n*** In main (): printing list after list is constructed ***\n");
         huffman.printList(huffman.listHead, outFile);
+
         outFile.write("\n\n*** In main before calling constructHuffmanBinTree ***\n");
         huffman.root = huffman.constructHuffmanBinTree(huffman.listHead, outFile, logFile);
 
