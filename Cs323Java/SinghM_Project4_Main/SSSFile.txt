@@ -1,0 +1,83 @@
+============================================================================
+There are 8 nodes in the input graph. Below are all pairs of shortest paths: 
+============================================================================
+The source node = 1
+The path from 1 to 1: 1 <- 1 : cost = 0
+The path from 1 to 2: 2 <- 1 : cost = 15
+The path from 1 to 3: 3 <- 1 : cost = 15
+The path from 1 to 4: 4 <- 1 : cost = 25
+The path from 1 to 5: 5 <- 1 : cost = 5
+The path from 1 to 6: 6 <- 5 <- 1 : cost = 20
+The path from 1 to 7: 7 <- 2 <- 1 : cost = 27
+The path from 1 to 8: 8 <- 5 <- 1 : cost = 12
+==================================================
+The source node = 2
+The path from 2 to 1: 1 <- 2 : cost = 22
+The path from 2 to 2: 2 <- 2 : cost = 0
+The path from 2 to 3: 3 <- 2 : cost = 30
+The path from 2 to 4: 4 <- 7 <- 2 : cost = 20
+The path from 2 to 5: 5 <- 1 <- 2 : cost = 27
+The path from 2 to 6: 6 <- 8 <- 2 : cost = 22
+The path from 2 to 7: 7 <- 2 : cost = 12
+The path from 2 to 8: 8 <- 2 : cost = 12
+==================================================
+The source node = 3
+The path from 3 to 1: 1 <- 7 <- 3 : cost = 37
+The path from 3 to 2: 2 <- 3 : cost = 20
+The path from 3 to 3: 3 <- 3 : cost = 0
+The path from 3 to 4: 4 <- 3 : cost = 15
+The path from 3 to 5: 5 <- 4 <- 3 : cost = 41
+The path from 3 to 6: 6 <- 8 <- 3 : cost = 22
+The path from 3 to 7: 7 <- 3 : cost = 23
+The path from 3 to 8: 8 <- 3 : cost = 12
+==================================================
+The source node = 4
+The path from 4 to 1: 1 <- 6 <- 4 : cost = 29
+The path from 4 to 2: 2 <- 6 <- 4 : cost = 16
+The path from 4 to 3: 3 <- 6 <- 4 : cost = 28
+The path from 4 to 4: 4 <- 4 : cost = 0
+The path from 4 to 5: 5 <- 4 : cost = 26
+The path from 4 to 6: 6 <- 4 : cost = 10
+The path from 4 to 7: 7 <- 4 : cost = 19
+The path from 4 to 8: 8 <- 2 <- 6 <- 4 : cost = 28
+==================================================
+The source node = 5
+The path from 5 to 1: 1 <- 8 <- 5 : cost = 33
+The path from 5 to 2: 2 <- 6 <- 5 : cost = 21
+The path from 5 to 3: 3 <- 6 <- 5 : cost = 33
+The path from 5 to 4: 4 <- 7 <- 8 <- 5 : cost = 33
+The path from 5 to 5: 5 <- 5 : cost = 0
+The path from 5 to 6: 6 <- 5 : cost = 15
+The path from 5 to 7: 7 <- 8 <- 5 : cost = 25
+The path from 5 to 8: 8 <- 5 : cost = 7
+==================================================
+The source node = 6
+The path from 6 to 1: 1 <- 6 : cost = 19
+The path from 6 to 2: 2 <- 6 : cost = 6
+The path from 6 to 3: 3 <- 6 : cost = 18
+The path from 6 to 4: 4 <- 7 <- 2 <- 6 : cost = 26
+The path from 6 to 5: 5 <- 1 <- 6 : cost = 24
+The path from 6 to 6: 6 <- 6 : cost = 0
+The path from 6 to 7: 7 <- 2 <- 6 : cost = 18
+The path from 6 to 8: 8 <- 2 <- 6 : cost = 18
+==================================================
+The source node = 7
+The path from 7 to 1: 1 <- 7 : cost = 14
+The path from 7 to 2: 2 <- 6 <- 7 : cost = 20
+The path from 7 to 3: 3 <- 1 <- 7 : cost = 29
+The path from 7 to 4: 4 <- 7 : cost = 8
+The path from 7 to 5: 5 <- 1 <- 7 : cost = 19
+The path from 7 to 6: 6 <- 7 : cost = 14
+The path from 7 to 7: 7 <- 7 : cost = 0
+The path from 7 to 8: 8 <- 5 <- 1 <- 7 : cost = 26
+==================================================
+The source node = 8
+The path from 8 to 1: 1 <- 8 : cost = 26
+The path from 8 to 2: 2 <- 6 <- 8 : cost = 16
+The path from 8 to 3: 3 <- 6 <- 8 : cost = 28
+The path from 8 to 4: 4 <- 7 <- 8 : cost = 26
+The path from 8 to 5: 5 <- 1 <- 8 : cost = 31
+The path from 8 to 6: 6 <- 8 : cost = 10
+The path from 8 to 7: 7 <- 8 : cost = 18
+The path from 8 to 8: 8 <- 8 : cost = 0
+==================================================
