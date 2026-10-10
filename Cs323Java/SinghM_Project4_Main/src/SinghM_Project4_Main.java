@@ -20,9 +20,9 @@ class DijktraSSS {
     public void loadCostMatrix(Scanner inFile) {
         numNodes = inFile.nextInt();
 
-        costMatrix = new int[numNodes][numNodes];
-        for(int i=0; i<numNodes; i++) {
-            for(int j=0; j<numNodes; j++) {
+        costMatrix = new int[numNodes+1][numNodes+1];
+        for(int i=1; i<=numNodes; i++) {
+            for(int j=1; j<=numNodes; j++) {
                 if(i == j) {
                     costMatrix[i][j] = 0;
                 }
@@ -35,31 +35,31 @@ class DijktraSSS {
         while(inFile.hasNextInt()) {
             int i = inFile.nextInt();
             int j = inFile.nextInt();
-            costMatrix[i-1][j-1] = inFile.nextInt();
+            costMatrix[i][j] = inFile.nextInt();
         }
     }
 
     public void initBest(int sourceNode) {
         this.sourceNode = sourceNode;
-        best = new int[numNodes];
+        best = new int[numNodes+1];
 
-        for(int i=0; i<numNodes; i++) {
+        for(int i=1; i<=numNodes; i++) {
             best[i] = costMatrix[sourceNode][i];
         }
     }
 
     public void initParent(int sourceNode) {
         this.sourceNode = sourceNode;
-        parent = new int[numNodes];
-        for (int i=0; i< numNodes; i++) {
+        parent = new int[numNodes+1];
+        for (int i=1; i<= numNodes; i++) {
             parent[i] = sourceNode;
         }
     }
 
     public void initToDo(int sourceNode) {
         this.sourceNode = sourceNode;
-        todo = new int[numNodes];
-        for(int i=0; i<numNodes; i++) {
+        todo = new int[numNodes+1];
+        for(int i=1; i<=numNodes; i++) {
             if(i == sourceNode) {
                 todo[i] = 0;
             }
@@ -73,8 +73,8 @@ class DijktraSSS {
         logFile.write("*** Entering findMinNode () method ***\n");
         minCost = 999;
         minNode = 0;
-        int index = 0;
-        while(index < numNodes) {
+        int index = 1;
+        while(index <= numNodes) {
             if(todo[index] == 1 && best[index] < minCost) {
                 minCost = best[index];
                 minNode = index;
@@ -87,7 +87,7 @@ class DijktraSSS {
 
     boolean checkToDo() {
         boolean toReturn = true;
-        for (int i=0; i<numNodes; i++) {
+        for (int i=1; i<=numNodes; i++) {
             if (todo[i] == 1) {
                 toReturn = false;
             }
@@ -98,11 +98,11 @@ class DijktraSSS {
     public void printParent(BufferedWriter outFile) throws IOException{
         outFile.write("Below is Parent Array: \n");
         outFile.write("Index: ");
-        for (int i=0; i<numNodes; i++) {
+        for (int i=1; i<=numNodes; i++) {
             outFile.write(i + " ");
         }
         outFile.write("\nParent: ");
-        for (int i=0; i<numNodes; i++) {
+        for (int i=1; i<=numNodes; i++) {
             outFile.write(parent[i] + " ");
         }
         outFile.write("\n");
@@ -111,11 +111,11 @@ class DijktraSSS {
     public void printToDo(BufferedWriter outFile) throws IOException{
         outFile.write("Below is ToDo Array: \n");
         outFile.write("Index: ");
-        for (int i=0; i<numNodes; i++) {
+        for (int i=1; i<=numNodes; i++) {
             outFile.write(i + " ");
         }
         outFile.write("\nToDo: ");
-        for (int i=0; i<numNodes; i++) {
+        for (int i=1; i<=numNodes; i++) {
             outFile.write(todo[i] + " ");
         }
         outFile.write("\n");
@@ -124,11 +124,11 @@ class DijktraSSS {
     public void printBest(BufferedWriter outFile) throws IOException{
         outFile.write("Below is Best Array: \n");
         outFile.write("Index: ");
-        for (int i=0; i<numNodes; i++) {
+        for (int i=1; i<=numNodes; i++) {
             outFile.write(i + " ");
         }
         outFile.write("\nBest: ");
-        for (int i=0; i<numNodes; i++) {
+        for (int i=1; i<=numNodes; i++) {
             outFile.write(best[i] + " ");
         }
         outFile.write("\n");
@@ -136,14 +136,14 @@ class DijktraSSS {
 
     public void printShortestPath(int currentNode, int sourceNode, BufferedWriter SSSFile) throws IOException {
         int father = parent[currentNode];
-        SSSFile.write("The path from " + (sourceNode+1) + " to " + (currentNode+1) + ": " +
-                (currentNode+1));
+        SSSFile.write("The path from " + (sourceNode) + " to " + (currentNode) + ": " +
+                (currentNode));
         while(father != sourceNode) {
-            SSSFile.write(" <- " + (father+1));
+            SSSFile.write(" <- " + (father));
             father = parent[father];
         }
 
-        SSSFile.write(" <- " + (father+1) + " : cost = " + best[currentNode]);
+        SSSFile.write(" <- " + (father) + " : cost = " + best[currentNode]);
     }
 }
 
@@ -183,14 +183,14 @@ public class SinghM_Project4_Main {
 
         DijktraSSS dijktra = new DijktraSSS();
         dijktra.loadCostMatrix(inFile);
-        dijktra.sourceNode = 0;
+        dijktra.sourceNode = 1;
 
         SSSFile.write("============================================================================\n" +
                 "There are " + dijktra.numNodes + " nodes in the input graph. " +
                 "Below are all pairs of shortest paths: \n" +
                 "============================================================================\n");
-        while(dijktra.sourceNode < dijktra.numNodes) {
-            logFile.write("“*** The Source Node = " + (dijktra.sourceNode) + " ***\n");
+        while(dijktra.sourceNode <= dijktra.numNodes) {
+            logFile.write("*** The Source Node = " + (dijktra.sourceNode) + " ***\n");
 
             dijktra.initBest(dijktra.sourceNode);
             dijktra.initParent(dijktra.sourceNode);
@@ -203,8 +203,8 @@ public class SinghM_Project4_Main {
                 dijktra.printParent(logFile);
                 dijktra.printBest(logFile);
 
-                int childNode = 0;
-                while (childNode < dijktra.numNodes) {
+                int childNode = 1;
+                while (childNode <= dijktra.numNodes) {
                     logFile.write("*** In main (), childNode is " + childNode + " ***\n");
                     if (dijktra.todo[childNode] == 1) {
                         int newCost = dijktra.best[minNode] + dijktra.costMatrix[minNode][childNode];
@@ -222,9 +222,9 @@ public class SinghM_Project4_Main {
             }
             logFile.write("\n");
 
-            dijktra.currentNode = 0;
-            SSSFile.write("The source node = " + (dijktra.sourceNode+1) + "\n");
-            while (dijktra.currentNode < dijktra.numNodes) {
+            dijktra.currentNode = 1;
+            SSSFile.write("The source node = " + (dijktra.sourceNode) + "\n");
+            while (dijktra.currentNode <= dijktra.numNodes) {
                 dijktra.printShortestPath(dijktra.currentNode, dijktra.sourceNode, SSSFile);
                 SSSFile.write("\n");
                 dijktra.currentNode++;
