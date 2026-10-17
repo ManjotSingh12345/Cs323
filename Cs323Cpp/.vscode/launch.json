@@ -7,7 +7,7 @@
             "request": "launch",
             "program": "${workspaceFolder}/Project5/SinghM_Project5_Main.exe",
             "args": [
-                "graph1.txt",
+                "graph2.txt",
                 "outFile.txt",
                 "logFile.txt"
             ],

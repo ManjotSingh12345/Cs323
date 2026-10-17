@@ -79,14 +79,14 @@ class KruskalMST{
     void printAry(int list[], ofstream& outFile) {
         outFile << "nodeId\twhich set\n===================================\n";
         for(int i=1; i<N+1; i++) {
-            outFile << i << "\t\t\t" << list[i] << endl;
+            outFile << i << "\t\t" << list[i] << endl;
         }
         outFile << endl;
     }
 
     void printList(edge* list, ofstream& outFile) {
         outFile << "listHead";
-        edge* temp = list -> next;
+        edge* temp = list;
         while(temp != nullptr) {
             outFile << " -> <" << temp->nU << ", " << temp->nW << ", " << temp->cost << ">";
             temp = temp->next;
