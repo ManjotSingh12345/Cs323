@@ -1,21 +1,23 @@
 {
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
         {
             "name": "(gdb) Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/Project2/SinghM_Project2_Main.exe",
-            "args": ["HashTable_Data2.txt", "13", "output1.txt", "logfile.txt"],
+            "program": "${workspaceFolder}/Project5/SinghM_Project5_Main.exe",
+            "args": [
+                "graph1.txt",
+                "outFile.txt",
+                "logFile.txt"
+            ],
             "stopAtEntry": false,
-            "cwd": "${fileDirname}",
+            "cwd": "${workspaceFolder}/Project5",
             "environment": [],
             "externalConsole": false,
             "MIMode": "gdb",
             "miDebuggerPath": "C:\\msys64\\ucrt64\\bin\\gdb.exe",
+            "preLaunchTask": "build Project5",
             "setupCommands": [
                 {
                     "description": "Enable pretty-printing for gdb",
@@ -29,7 +31,5 @@
                 }
             ]
         }
-
-
     ]
 }

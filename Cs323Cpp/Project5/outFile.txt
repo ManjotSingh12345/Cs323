@@ -1,0 +1,18 @@
+*** In main (): At the end, printing the final whichSet array
+nodeId	which set
+===================================
+1			1
+2			1
+3			1
+4			1
+5			1
+6			1
+
+*** A Kruskal’s MST of the input graph is given below: *** 
+6
+1 4 1
+2 3 2
+3 4 2
+4 6 2
+5 6 5
+*** The total cost of a Kruskal’s MST is: 12
