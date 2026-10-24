@@ -1,0 +1,19 @@
+Entering setMatrix() method
+Entering countParent() method
+In countParent(), parent count is 0Entering countDependent() method
+In countDependent(), dependent count is 3Entering countParent() method
+In countParent(), parent count is 1Entering countDependent() method
+In countDependent(), dependent count is 1Entering countParent() method
+In countParent(), parent count is 1Entering countDependent() method
+In countDependent(), dependent count is 1Entering countParent() method
+In countParent(), parent count is 1Entering countDependent() method
+In countDependent(), dependent count is 1Entering countParent() method
+In countParent(), parent count is 0Entering countDependent() method
+In countDependent(), dependent count is 1Entering countParent() method
+In countParent(), parent count is 6Entering countDependent() method
+In countDependent(), dependent count is 0Entering countParent() method
+In countParent(), parent count is 0Entering countDependent() method
+In countDependent(), dependent count is 1Entering countParent() method
+In countParent(), parent count is 0Entering countDependent() method
+In countDependent(), dependent count is 1Leaving setMatrix()
+
