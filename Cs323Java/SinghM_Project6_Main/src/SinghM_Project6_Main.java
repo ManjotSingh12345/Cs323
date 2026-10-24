@@ -32,9 +32,9 @@ class schedule {
         jobTimeAry = new int[numNodes+1];
         jobStatus = new int[numNodes+1];
         Matrix = new int[numNodes+1][numNodes+1];
+        totalJobTimes = loadJobTimeAry(inFile2);
         Table = new int[numProcs+1][totalJobTimes+1];
         for(int i=0;i<numNodes+1;i++) {
-            jobTimeAry[i] = 1;
             jobStatus[i] = 1;
             for(int j=0;j<numNodes+1;j++) {
                 Matrix[i][j] = 0;
@@ -45,7 +45,6 @@ class schedule {
                 Table[i][j] = 0;
             }
         }
-        totalJobTimes = loadJobTimeAry(inFile2);
         open = new listNode(-1,0);
     }
 
@@ -99,6 +98,9 @@ class schedule {
 
     int loadJobTimeAry(Scanner inFile2) {
         int a = inFile2.nextInt();
+        for(int i=0;i<numNodes+1;i++) {
+            jobTimeAry[i] = 1;
+        }
         int totalJobTimes = 0;
         while(inFile2.hasNextInt()) {
             int jobID = inFile2.nextInt();
@@ -117,13 +119,14 @@ class schedule {
                 jobStatus[j] = 2;
                 toReturn = j;
             }
+            j++;
         }
         return toReturn;
     }
 
     listNode findSpot(listNode head, listNode newNode) {
         listNode spot = head;
-        if(spot.next != null && spot.next.jobTime < newNode.jobTime) {
+        while(spot.next != null && spot.next.jobTime <= newNode.jobTime) {
             spot = spot.next;
         }
         return spot;
@@ -131,8 +134,9 @@ class schedule {
 
     int getNextProc(int currentTime) {
         int toReturn = -1;
+        if(currentTime > totalJobTimes) return toReturn;
         for(int i=0; i<numProcs; i++) {
-            if (Table[i][currentTime] == 0) toReturn = i;
+            if (Table[i][currentTime] == 0) return i;
         }
         return toReturn;
     }
@@ -153,6 +157,7 @@ class schedule {
             spot.next = newNode;
             logFile.write("In fillOPEN(), printing OPEN\n");
             printOPEN(logFile);
+            jobID = findOrphan();
         }
 
         logFile.write("Leaving fillOPEN() method\n");
@@ -169,6 +174,7 @@ class schedule {
             }
             logFile.write("In fillTable(), printing the Table; availProc = " + availProc + "; procUsed = " + procUsed + "\n");
             printTable(logFile, currentTime);
+            availProc = getNextProc(currentTime);
         }
         logFile.write("Leaving fillTable() method\n");
     }
@@ -200,7 +206,13 @@ class schedule {
         listNode currentNode = open;
         outFile.write("OPEN -> ");
         while(currentNode != null) {
-            outFile.write("(" + currentNode.jobID + ", " + currentNode.jobTime + ". " + currentNode.next + ") -> ");
+            if(currentNode.next != null) {
+                outFile.write("(" + currentNode.jobID + ", " + currentNode.jobTime + ", " + currentNode.next.jobID + ") -> ");
+            }
+            else {
+                outFile.write("(" + currentNode.jobID + ", " + currentNode.jobTime + ", NULL) -> ");
+            }
+
             currentNode = currentNode.next;
         }
         outFile.write("NULL\n");
@@ -219,30 +231,39 @@ class schedule {
     }
 
     void printTable(BufferedWriter outFile, int currentTime) throws IOException {
-        outFile.write("Table:\nTime:            ");
-        for(int i=0; i<totalJobTimes+1; i++) {
-            outFile.write(i + "      ");
+        outFile.write("Time:       ");
+        for(int i=0; i<totalJobTimes; i++) {
+            outFile.write(String.format("%-6d", i));
         }
 
-        outFile.write("\n                   ");
-        for(int i=0;i<totalJobTimes+1; i++) {
-            outFile.write("----");
+        outFile.write("\n         ");
+        for(int i=0;i<totalJobTimes; i++) {
+            outFile.write("------");
         }
-        for(int i=0; i< numProcs+1; i++) {
-            outFile.write("\nProc " + (i+1) + "   ");
-            for(int j=0; j < currentTime; j++) {
-                if(Table[i][j] != 0) {
-                    outFile.write("| " + Table[i][j] + " ");
+        outFile.write("-");
+        for(int i=0; i< numProcs; i++) {
+            outFile.write("\n");
+            outFile.write(String.format("Proc " + "%-4d", (i+1)));
+            for(int j=0; j < totalJobTimes; j++) {
+                if(j <= currentTime) {
+                    if(Table[i][j] != 0) {
+                        outFile.write("");
+                        outFile.write(String.format("| %-3d ", Table[i][j]));
+                    }
+                    else {
+                        outFile.write("|  -  ");
+                    }
                 }
                 else {
-                    outFile.write("   | - |");
+                    outFile.write("|     ");
                 }
             }
 
-            outFile.write("|\n                   ");
-            for(int j=0;j<totalJobTimes+1; j++) {
-                outFile.write("----");
+            outFile.write("|\n         ");
+            for(int j=0;j<totalJobTimes; j++) {
+                outFile.write("------");
             }
+            outFile.write("-");
         }
         outFile.write("\n");
     }
@@ -274,12 +295,20 @@ class schedule {
 
     void deleteDoneJobs(BufferedWriter logFile) throws IOException {
         logFile.write("Entering deleteDoneJobs() method\n");
+        //System.out.println("currentTime = " + currentTime);
+        //System.out.println("totalJobTimes = " + totalJobTimes);
+
         for(int proc = 0; proc < numProcs; proc++) {
-            if(Table[proc][currentTime] <= 0 && Table[proc][currentTime - 1] > 0) {
+            if(currentTime <= totalJobTimes && Table[proc][currentTime] <= 0 && Table[proc][currentTime - 1] > 0) {
                 int jobID = Table[proc][currentTime-1];
+
+                //System.out.println("Deleting job " + jobID);
+
                 deleteJob(jobID, logFile);
             }
         }
+
+        //System.out.println("Remaining jobs = " + Matrix[0][0]);
 
         logFile.write("Leaving deleteDoneJobs() method\n");
     }
@@ -288,11 +317,13 @@ class schedule {
         logFile.write("Entering deleteJob() method\n");
         jobStatus[jobID] = 0;
         Matrix[0][0]--;
+        procUsed--;
         int j = 1;
         while(j <= numNodes) {
             if(Matrix[jobID][j] > 0) {
                 Matrix[0][j]--;
             }
+            j++;
         }
 
         logFile.write("Leaving deleteJob() method\n");
@@ -304,49 +335,50 @@ public class SinghM_Project6_Main {
     public static void main(String[] args) throws IOException {
         Scanner inFile1 = null;
         Scanner inFile2 = null;
+        int numP = 0;
         BufferedWriter outFile = null;
         BufferedWriter logFile = null;
 
         if(args.length != 5) {
-            System.out.println("Error, you need 2 input files, a output file, and a logfile\n");
-            System.out.println(args.length);
+            System.out.println("Error, you need 2 input files, a processor count, a output file, and a logfile\n");
             System.exit(1);
         }
         try {
             inFile1 = new Scanner(new FileReader(args[0]));
         }
         catch (FileNotFoundException e) {
-            System.out.println("Error, you need 2 input files, a output file, and a logfile\n");
-            System.out.println("b");
+            System.out.println("Error, you need 2 input files, a processor count, a output file, and a logfile\n");
             System.exit(1);
         }
         try {
             inFile2 = new Scanner(new FileReader(args[1]));
         }
         catch (FileNotFoundException e) {
-            System.out.println("Error, you need 2 input files, a output file, and a logfile\n");
-            System.out.println("c");
+            System.out.println("Error, you need 2 input files, a processor count, a output file, and a logfile\n");
+            System.exit(1);
+        }
+        try{
+            numP = Integer.parseInt(args[2]);
+        } catch (NumberFormatException e) {
+            System.out.println("Error, you need 2 input files, a processor count, a output file, and a logfile\n");
             System.exit(1);
         }
         try {
             outFile = new BufferedWriter(new FileWriter(args[3]));
         }
         catch (FileNotFoundException e) {
-            System.out.println("Error, you need 2 input files, a output file, and a logfile\n");
-            System.out.println("d");
+            System.out.println("Error, you need 2 input files, a processor count, a output file, and a logfile\n");
             System.exit(1);
         }
         try {
             logFile = new BufferedWriter(new FileWriter(args[4]));
         }
         catch (FileNotFoundException e) {
-            System.out.println("Error, you need 2 input files, a output file, and a logfile\n");
-            System.out.println("e");
+            System.out.println("Error, you need 2 input files, a processor count, a output file, and a logfile\n");
             System.exit(1);
         }
 
         int numN = inFile1.nextInt();
-        int numP = Integer.parseInt(args[2]);
 
         if(numP <= 0) {
             System.out.println("Need 1 or more processors");
@@ -361,14 +393,43 @@ public class SinghM_Project6_Main {
 
         sch.loadMatrix(inFile1);
         sch.setMatrix(sch.Matrix, logFile);
+
         outFile.write("***in main(), printing Matrix");
         sch.printMatrix(outFile);
-
-        outFile.write("***in main(), printing jobTimeAry\n");
+        outFile.write("\n***in main(), printing jobTimeAry\n");
         sch.print1DAry(sch.jobTimeAry, outFile);
-
-        outFile.write("***in main(), printing jobStatus\n");
+        outFile.write("\n***in main(), printing jobStatus\n");
         sch.print1DAry(sch.jobStatus, outFile);
+
+        while(!sch.isGraphEmpty()) {
+            outFile.write("\nin main(), printing OPEN before fillOPEN\n");
+            sch.printOPEN(outFile);
+            sch.fillOPEN(logFile);
+            outFile.write("\nIn main(), printing OPEN after fillOPEN\n");
+            sch.printOPEN(outFile);
+
+            boolean cycle = sch.checkCycle();
+            if (cycle) {
+                outFile.write("\nThere is a cycle!");
+                outFile.close();
+                inFile1.close();
+                inFile2.close();
+                logFile.close();
+                System.exit(1);
+            }
+
+            outFile.write("\nIn main(), printing Table, before fillTable\n");
+            sch.printTable(outFile, sch.currentTime);
+            sch.fillTable(logFile);
+            outFile.write("\nIn main(), printing Table after fillTable\n");
+            sch.printTable(outFile, sch.currentTime);
+
+            sch.currentTime++;
+            sch.deleteDoneJobs(logFile);
+        }
+
+        outFile.write("\nIn main() printing the final table\n");
+        sch.printTable(outFile, sch.currentTime);
 
         outFile.close();
         inFile1.close();

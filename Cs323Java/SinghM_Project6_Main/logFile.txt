@@ -17,3 +17,137 @@ In countDependent(), dependent count is 1Entering countParent() method
 In countParent(), parent count is 0Entering countDependent() method
 In countDependent(), dependent count is 1Leaving setMatrix()
 
+Entering fillOPEN() method
+In fillOPEN(), printing OPEN
+OPEN -> (-1, 0, 1) -> (1, 1, NULL) -> NULL
+In fillOPEN(), printing OPEN
+OPEN -> (-1, 0, 1) -> (1, 1, 5) -> (5, 1, NULL) -> NULL
+In fillOPEN(), printing OPEN
+OPEN -> (-1, 0, 1) -> (1, 1, 5) -> (5, 1, 7) -> (7, 1, NULL) -> NULL
+In fillOPEN(), printing OPEN
+OPEN -> (-1, 0, 1) -> (1, 1, 5) -> (5, 1, 7) -> (7, 1, 8) -> (8, 1, NULL) -> NULL
+Leaving fillOPEN() method
+Entering fillTable() method
+Entering putJobOnTable() method
+Leaving putJobOnTable() method
+In fillTable(), printing the Table; availProc = 0; procUsed = 1
+Time:       0     1     2     3     4     5     6     7     
+         -------------------------------------------------
+Proc 1   | 1   |     |     |     |     |     |     |     |
+         -------------------------------------------------
+Proc 2   |  -  |     |     |     |     |     |     |     |
+         -------------------------------------------------
+Entering putJobOnTable() method
+Leaving putJobOnTable() method
+In fillTable(), printing the Table; availProc = 1; procUsed = 2
+Time:       0     1     2     3     4     5     6     7     
+         -------------------------------------------------
+Proc 1   | 1   |     |     |     |     |     |     |     |
+         -------------------------------------------------
+Proc 2   | 5   |     |     |     |     |     |     |     |
+         -------------------------------------------------
+Leaving fillTable() method
+Entering deleteDoneJobs() method
+Entering deleteJob() method
+Leaving deleteJob() method
+Entering deleteJob() method
+Leaving deleteJob() method
+Leaving deleteDoneJobs() method
+Entering fillOPEN() method
+In fillOPEN(), printing OPEN
+OPEN -> (-1, 0, 7) -> (7, 1, 8) -> (8, 1, 2) -> (2, 1, NULL) -> NULL
+In fillOPEN(), printing OPEN
+OPEN -> (-1, 0, 7) -> (7, 1, 8) -> (8, 1, 2) -> (2, 1, 3) -> (3, 1, NULL) -> NULL
+In fillOPEN(), printing OPEN
+OPEN -> (-1, 0, 7) -> (7, 1, 8) -> (8, 1, 2) -> (2, 1, 3) -> (3, 1, 4) -> (4, 1, NULL) -> NULL
+Leaving fillOPEN() method
+Entering fillTable() method
+Entering putJobOnTable() method
+Leaving putJobOnTable() method
+In fillTable(), printing the Table; availProc = 0; procUsed = 1
+Time:       0     1     2     3     4     5     6     7     
+         -------------------------------------------------
+Proc 1   | 1   | 7   |     |     |     |     |     |     |
+         -------------------------------------------------
+Proc 2   | 5   |  -  |     |     |     |     |     |     |
+         -------------------------------------------------
+Entering putJobOnTable() method
+Leaving putJobOnTable() method
+In fillTable(), printing the Table; availProc = 1; procUsed = 2
+Time:       0     1     2     3     4     5     6     7     
+         -------------------------------------------------
+Proc 1   | 1   | 7   |     |     |     |     |     |     |
+         -------------------------------------------------
+Proc 2   | 5   | 8   |     |     |     |     |     |     |
+         -------------------------------------------------
+Leaving fillTable() method
+Entering deleteDoneJobs() method
+Entering deleteJob() method
+Leaving deleteJob() method
+Entering deleteJob() method
+Leaving deleteJob() method
+Leaving deleteDoneJobs() method
+Entering fillOPEN() method
+Leaving fillOPEN() method
+Entering fillTable() method
+Entering putJobOnTable() method
+Leaving putJobOnTable() method
+In fillTable(), printing the Table; availProc = 0; procUsed = 1
+Time:       0     1     2     3     4     5     6     7     
+         -------------------------------------------------
+Proc 1   | 1   | 7   | 2   |     |     |     |     |     |
+         -------------------------------------------------
+Proc 2   | 5   | 8   |  -  |     |     |     |     |     |
+         -------------------------------------------------
+Entering putJobOnTable() method
+Leaving putJobOnTable() method
+In fillTable(), printing the Table; availProc = 1; procUsed = 2
+Time:       0     1     2     3     4     5     6     7     
+         -------------------------------------------------
+Proc 1   | 1   | 7   | 2   |     |     |     |     |     |
+         -------------------------------------------------
+Proc 2   | 5   | 8   | 3   |     |     |     |     |     |
+         -------------------------------------------------
+Leaving fillTable() method
+Entering deleteDoneJobs() method
+Entering deleteJob() method
+Leaving deleteJob() method
+Entering deleteJob() method
+Leaving deleteJob() method
+Leaving deleteDoneJobs() method
+Entering fillOPEN() method
+Leaving fillOPEN() method
+Entering fillTable() method
+Entering putJobOnTable() method
+Leaving putJobOnTable() method
+In fillTable(), printing the Table; availProc = 0; procUsed = 1
+Time:       0     1     2     3     4     5     6     7     
+         -------------------------------------------------
+Proc 1   | 1   | 7   | 2   | 4   |     |     |     |     |
+         -------------------------------------------------
+Proc 2   | 5   | 8   | 3   |  -  |     |     |     |     |
+         -------------------------------------------------
+Leaving fillTable() method
+Entering deleteDoneJobs() method
+Entering deleteJob() method
+Leaving deleteJob() method
+Leaving deleteDoneJobs() method
+Entering fillOPEN() method
+In fillOPEN(), printing OPEN
+OPEN -> (-1, 0, 6) -> (6, 1, NULL) -> NULL
+Leaving fillOPEN() method
+Entering fillTable() method
+Entering putJobOnTable() method
+Leaving putJobOnTable() method
+In fillTable(), printing the Table; availProc = 0; procUsed = 1
+Time:       0     1     2     3     4     5     6     7     
+         -------------------------------------------------
+Proc 1   | 1   | 7   | 2   | 4   | 6   |     |     |     |
+         -------------------------------------------------
+Proc 2   | 5   | 8   | 3   |  -  |  -  |     |     |     |
+         -------------------------------------------------
+Leaving fillTable() method
+Entering deleteDoneJobs() method
+Entering deleteJob() method
+Leaving deleteJob() method
+Leaving deleteDoneJobs() method
