@@ -78,7 +78,7 @@ class schedule {
             }
             i++;
         }
-        logFile.write("In countParent(), parent count is " + count);
+        logFile.write("In countParent(), parent count is " + count + "\n");
         return count;
     }
 
@@ -92,7 +92,7 @@ class schedule {
             }
             i++;
         }
-        logFile.write("In countDependent(), dependent count is " + count);
+        logFile.write("In countDependent(), dependent count is " + count + "\n");
         return count;
     }
 
@@ -295,20 +295,13 @@ class schedule {
 
     void deleteDoneJobs(BufferedWriter logFile) throws IOException {
         logFile.write("Entering deleteDoneJobs() method\n");
-        //System.out.println("currentTime = " + currentTime);
-        //System.out.println("totalJobTimes = " + totalJobTimes);
 
         for(int proc = 0; proc < numProcs; proc++) {
             if(currentTime <= totalJobTimes && Table[proc][currentTime] <= 0 && Table[proc][currentTime - 1] > 0) {
                 int jobID = Table[proc][currentTime-1];
-
-                //System.out.println("Deleting job " + jobID);
-
                 deleteJob(jobID, logFile);
             }
         }
-
-        //System.out.println("Remaining jobs = " + Matrix[0][0]);
 
         logFile.write("Leaving deleteDoneJobs() method\n");
     }
