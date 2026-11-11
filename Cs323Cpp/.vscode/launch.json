@@ -5,14 +5,14 @@
             "name": "(gdb) Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/Project5/SinghM_Project5_Main.exe",
+            "program": "${workspaceFolder}/Project7/SinghM_Project7_Main.exe",
             "args": [
-                "graph2.txt",
+                "img2.txt",
                 "outFile.txt",
                 "logFile.txt"
             ],
             "stopAtEntry": false,
-            "cwd": "${workspaceFolder}/Project5",
+            "cwd": "${workspaceFolder}/Project7",
             "environment": [],
             "externalConsole": false,
             "MIMode": "gdb",

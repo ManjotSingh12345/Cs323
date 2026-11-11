@@ -7,9 +7,9 @@
             "args": [
                 "-fdiagnostics-color=always",
                 "-g",
-                "${workspaceFolder}/Project5/*.cpp",
+                "${workspaceFolder}/Project7/*.cpp",
                 "-o",
-                "${workspaceFolder}/Project5/SinghM_Project5_Main.exe"
+                "${workspaceFolder}/Project7/SinghM_Project7_Main.exe"
             ],
             "options": {
                 "cwd": "C:/msys64/ucrt64/bin"
