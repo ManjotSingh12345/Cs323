@@ -27,10 +27,10 @@ class QtNode {
 
     void printQtNode(QtNode* node, ofstream& outFile) {
         if (node->color == 5) {
-            outFile << "<5, " << node->NW->color << ", " << node->NE->color << ", " << node->SW->color << ", " << node->SE->color << "> -> ";
+            outFile << "<5, " << node->NW->color << ", " << node->NE->color << ", " << node->SW->color << ", " << node->SE->color << "> ->\n";
         }
         else if(node->color == 0 || node->color == 1) {
-            outFile << "<" << node->color << ", null, null, null, null> -> ";
+            outFile << "<" << node->color << ", null, null, null, null> ->\n";
         }
     }
 };
@@ -58,13 +58,13 @@ class QtTree {
         while (size > power2Size) {
             power2Size *= 2;
         }
-        logFile << "“** Leaving computePower2 method, power2 is " << power2Size << endl;
+        logFile << "** Leaving computePower2 method, power2 is " << power2Size << endl;
         return power2Size;
     }
 
     void loadImage(ifstream& inFile, int** imgAry) {
-        for(int r=0; r<power2Size; r++) {
-            for(int c=0; c<power2Size; c++) {
+        for(int r=0; r<numRows; r++) {
+            for(int c=0; c<numCols; c++) {
                 inFile >> imgAry[r][c];
             }
         }
