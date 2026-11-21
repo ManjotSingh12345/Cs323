@@ -23,11 +23,17 @@ class AStarNode {
         for(int i=0;i<9;i++) {
             outFile.write(node.config[i] + " ");
         }
-        outFile.write("] :: " + node.parent.fStar + " [");
-        for(int i=0;i<9;i++) {
-            outFile.write(node.parent.config[i] + " ");
+
+        if(node.parent == null) {
+            outFile.write("]::[null]>");
         }
-        outFile.write("]>");
+        else {
+            outFile.write("] :: " + node.parent.fStar + " [");
+            for(int i=0;i<9;i++) {
+                outFile.write(node.parent.config[i] + " ");
+            }
+            outFile.write("]>");
+        }
     }
 }
 
@@ -74,9 +80,7 @@ class AStar {
 
         int i = 0;
         int zeroPosition;
-        while(currentNode.config[i] != 0 && i<9) {
-            i++;
-        }
+        while(i<9 && currentNode.config[i] != 0) {i++;}
 
         if(i>=9) {
             logFile.write("*** Something is wrong, currentNode does not have a zero in it\n");
@@ -84,12 +88,15 @@ class AStar {
         }
         else {
             zeroPosition = i;
-            logFile.write("*** find the zero position in currentNode at position i = " + i + "\n");
+            logFile.write("\n*** find the zero position in currentNode at position i = " + i + "\n");
         }
 
         for(int j=0; j<9; j++) {
             if(table[zeroPosition][j] == 1) {
-                AStarNode newNode = new AStarNode(currentNode.config, 999, 999, 999, null, currentNode);
+                int[] newConfig = new int[9];
+                for(int k=0; k<9; k++) {newConfig[k] = currentNode.config[k];}
+
+                AStarNode newNode = new AStarNode(newConfig, 999, 999, 999, null, currentNode);
                 newNode.config[j] = 0;
                 newNode.config[zeroPosition] = currentNode.config[j];
                 if(checkAncestors(newNode) == false) {
@@ -100,18 +107,23 @@ class AStar {
         }
 
         logFile.write("Leaving expandChildList method and printing tmpList\n");
-        printList(tmpList, logFile);
+        printList(tmpList, false, logFile);
         return tmpList;
     }
 
     public void OpenInsert(AStarNode node) {
-        AStarNode temp = Open.next;
-        while(temp.next != null && temp.next.fStar <= node.next.fStar) {
-            temp = temp.next;
+        if(Open.next == null) {
+            Open.next = node;
         }
+        else {
+            AStarNode temp = Open;
+            while(temp.next != null && temp.next.fStar <= node.fStar) {
+                temp = temp.next;
+            }
 
-        node.next = temp.next;
-        temp.next = node;
+            node.next = temp.next;
+            temp.next = node;
+        }
     }
 
     AStarNode remove(AStarNode list) {
@@ -132,7 +144,7 @@ class AStar {
 
     boolean checkAncestors(AStarNode child) {
         AStarNode temp = child.parent;
-        while(temp != startNode) {
+        while(temp != null) {
             if(match(child.config, temp.config)) {return true;}
             temp = temp.parent;
         }
@@ -140,12 +152,14 @@ class AStar {
         return false;
     }
 
-    void printList(AStarNode list, BufferedWriter outFile) throws IOException{
-        AStarNode temp = list.next;
-        while(temp != null) {
+    void printList(AStarNode list, boolean limit, BufferedWriter outFile) throws IOException{
+        AStarNode temp = list;
+        int i = 0;
+        while(temp != null && (!limit || i != 20)) {
             temp.printNode(temp, outFile);
             outFile.write(" -> ");
             temp = temp.next;
+            i++;
         }
         outFile.write("null\n");
     }
@@ -160,7 +174,7 @@ class AStar {
 
             if((i+1) % 3 == 0) {outFile.write("\n");}
         }
-        outFile.write("\n\n");
+        outFile.write("\n");
     }
 }
 
@@ -195,22 +209,65 @@ public class SinghM_Project8_Main {
         star.startNode = new AStarNode(star.initConfig, 0, 9999, 9999, null, null);
         star.Open = new AStarNode(star.dummyConfig, 0, 0, 0, null, null);
         star.Close = new AStarNode(star.dummyConfig, 0, 0, 0, null, null);
-        star.childList = star.Open = new AStarNode(star.dummyConfig, 0, 0, 0, null, null);
+        star.childList = new AStarNode(star.dummyConfig, 0, 0, 0, null, null);
 
         star.startNode.gStar = 0;
         star.startNode.hStar = star.computeHStar(star.startNode.config, star.goalConfig, logFile);
         star.startNode.fStar = star.startNode.gStar + star.startNode.hStar;
-        logFile.write("“*** Below is the startNode’s ***\n");
+        logFile.write("“*** Below is the startNode ***\n");
         star.startNode.printNode(star.startNode, logFile);
+        logFile.write("\n");
         star.OpenInsert(star.startNode);
 
-        AStarNode currentNode = star.remove(star.Open);
+        AStarNode currentNode = new AStarNode(star.dummyConfig, 0, 0, 0, null, null);
         while(star.Open.next != null && !star.match(currentNode.config, star.goalConfig)) {
-            logFile.write("“*** Below is the startNode’s ***\n");
+            currentNode = star.remove(star.Open);
+            logFile.write("*** this is currentNode\n");
             currentNode.printNode(currentNode, logFile);
             logFile.write("\n");
 
-            if(currentNode != null)
+            if (currentNode != null && star.match(currentNode.config, star.goalConfig)) {
+                outFile2.write("*** A solution is found, below is the movements from start node to the goal node!!\n");
+                star.printSolution(currentNode, outFile2);
+                inFile1.close();
+                inFile2.close();
+                outFile1.close();
+                outFile2.close();
+                logFile.close();
+                System.exit(0);
+            }
+
+            star.childList = star.expandChildList(currentNode, logFile);
+
+            while (star.childList.next != null) {
+                AStarNode child = star.remove(star.childList);
+                logFile.write("*** In main(), remove node from childList, and printing”\n");
+                child.printNode(child, logFile);
+                logFile.write("\n");
+
+                child.gStar = currentNode.gStar + 1;
+                child.hStar = star.computeHStar(child.config, star.goalConfig, logFile);
+                child.fStar = child.gStar + child.hStar;
+                child.parent = currentNode;
+                logFile.write("*** printing child’s gStar, hStar and fStar etc.\n");
+                child.printNode(child, logFile);
+                logFile.write("\n");
+
+                star.OpenInsert(child);
+            }
+
+            outFile1.write("**** Below is Open list:\n");
+            star.printList(star.Open, true, outFile1);
         }
+
+        if(star.Open.next == null && !star.match(currentNode.config, star.goalConfig)) {
+            outFile1.write("*** Message: no solution can be found in the search!\n");
+        }
+
+        inFile1.close();
+        inFile2.close();
+        outFile1.close();
+        outFile2.close();
+        logFile.close();
     }
 }
